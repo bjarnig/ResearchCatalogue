@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Local Development</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.css'>
+  <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+  <div class="exposition">
+    <div class="exposition-content">
+      <!-- COPY START -->
+      <header class="sticky row">
+        <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+          <a href="https://www.researchcatalogue.net/view/543155/543156" class="button">Introduction</a>
+          <a href="#algorithms" class="button">Algorithms</a>
+          <a href="#interaction" class="button">Interaction</a>
+          <a href="#system" class="button">System</a>
+          <a href="#conclusions" class="button">Conclusions</a>
+          <a href="#references" class="button">References</a>
+        </div>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-sm-offset-1 col-lg-offset-2 col-md-offset-2">
+            <div class="rounded" style="background:#ffffff; width: 100%; margin-left: 30px; margin-top:80px; margin-bottom:-100px;">
+              <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/blur.png" width="1027">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <p>&nbsp</p>
+            <p>&nbsp</p>
+            <h1>Interrupts and Intervention </h1>
+            <p>By <a href="http://www.bjarni-gunnarsson.net" target="_blank">Bjarni Gunnarsson</a></p>
+            <p>
+              Computing today is increasingly oriented towards real-time interaction, networks, distributed systems and adaptive algorithms. Using generative computer processes when creating music raises questions of how to model compositional
+              procedures that allow for openness, interaction and malleable organisation of time. Instead of employing predefined algorithms during composition, processes should be designed to adapt to or evolve within such a situation. The framing
+              of decision-making is essential to the design of such processes.
+              </p><p>
+              An important consideration is how to represent a generative algorithm as distributed (open), with multiple entry points instead of being closed and result-oriented only. How to introduce dynamic modifications of goals (or heuristics)
+              as a creative interaction mode or how the attitude of evolving criteria (variable intentions) can be made audible through the characteristics of the corresponding sound processes. The main idea is to separate the scheduling and
+              producing parts of generative algorithms. To balance the influence of processes that take a certain time to manifest themselves and their activation. This involves making the algorithms block-based so that different areas of their
+              evolution can be accessed freely. It also makes use of adaptive heuristics and interrupt-based scheduling.
+              </p><p>
+                This exposition forms part of my research on the positioning of algorithms for composing computer music made at the <a href="https://www.koncon.nl">The Royal Conservatoire</a> and <a href="http://www.sonology.org">Institute of Sonology</a> in The Hague from late 2017 to early 2019.
+                Further research on the topic can be found in my work <a href="https://www.researchcatalogue.net/view/540350/540351"> on the context and scope of generative algorithms within compositional environments.</a>
+              </p>
+              <p>
+              Presented below is a software framework, an interactive, container-based, process scheduler which will be abbreviated in this text as CPSI. It provides an integrated approach to interaction and scheduling of generative processes.
+              CPSI has three main parts: A scheduler, an interaction module and a process container. CPSI can be programmed to run without any user intervention but also to operate within a real-time situation.
+              </p><p>
+              The CPSI framework offers several important functionalities:
+              </p><p>
+              <ul>
+              <li>Dynamic containers that encapsulate algorithms, data and temporal states</li>
+              <li>Block-division of input processes that facilitate interactive scheduling</li>
+              <li>Direct and adaptive interactions algorithms for gradual and immediate causation</li>
+              <li>Real-time reconfiguration of heuristics and process scheduling</li>
+              <li>Parameter transfer from automated procedures to manual intervention</li>
+              <li>Interrupt-based scheduling of partial algorithms with scheduling actions</li>
+              <li>Parallel schedulers with scripting facilities and interoperability support</li>
+              <li>This text will proceed by presenting ideas of container-based algorithms and adaptive heuristics. A discussion of interaction and interrupts will follow and finally, the software framework will be presented and the research results evaluated.</li>
+              </ul>
+            </p>
+            <div id="algorithms">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Algorithms</h1>
+            <h2>Goal orientation</h2>
+            <p>Generative composition programs represent a mediation between predetermined ideas and practical realizations. During the conversion from intention to execution, a translation takes place that can result in certain choices being established in order to express musical processes. This fixation takes place through algorithms, descriptive processes that are usually expressed with enumerated steps that precisely notate how to advance from one state to the next. Algorithms are usually measured in terms of efficiency, clarity, abstraction, and reproducibility. Their capacity is often obtained by computing how they respond to the use of time and space in terms of resources and duration. In fact, if an algorithm performs strongly with regards to these criteria, the details of exactly how it proceeds is considered less important (given the fact that it will produce a satisfactory result).<p>
+            <p>An important factor is how the quality of a result has to fit an original intention, a factor that has influenced other choices made during design and implementation. Algorithms are therefore usually goal-oriented. Designed to deliver a certain output and expected “to render something unambiguous” [1]. Algorithms represent abstract solutions to well-defined problems. They are ideal, finite, pure and isolated from any environmental complexity. However, abstractions often tend to neglect details or residues that can in subtle ways be considered important to the domain being modelled. The framing (or implementation) of a generative process to a working program involves decision making and alignment of interest that has a strong influence on their technical affordance [2]. Instead of focusing on fixed metrics, algorithmic modelling should be something that takes shape during the compositional process but not prior to it.<p>
+            <h2>Black Boxes (choosing to ignore)</h2>
+            <p>Algorithms and abstractions exclude certain implementation details when exposing their functionality. What matters is the input and output of a given process “a device whose functionality we understand, but whose inner workings we don’t, or choose to ignore.” [3]. In such a working mode, inputs are given to a black-box, it runs and returns results. How a black box operates is an unknown mystery and only accessible within the box itself. The structure of the system does not change while it runs or at any moment once it is being used. Neglecting implementation details can introduce important problems regarding the relationship between a concretized process and the external factors that have initiated it. How can mutual influence, dialogue or exchange take place only through the input and output phases of a running process? How can a change of behavior be introduced within such a model? </p><p> Discussing his work programs for the IBM 7090 computer, Iannis Xenakis mentions the idea of “la structure abstraite” [4]. A program that consists of formulas and reasonings but that does not change in itself. Xenakis mentions strategies for varying the input to a black box, how the structure of a composition can be changed (not the stochastic program) and the importance of manual modification of the output. He also mentions how such a static program can be used to generate families of pieces. However, the “boîte noire” stays static and all other operations are based on this fact. It takes a certain time for a process to manifest itself. To express its time-varying qualities.
+            </p><p> How a process is configured in relation to other structural functions could be understood as simply being composition itself. An example of this can be found in the electronic works of Roland Kayn where the focus is on the creation of interconnected electronic modules and the sonic relationships that emerge from a certain system design. The control is mostly delegated to the system itself bringing forth a question of acceptance: “The composer is entirely divested of his original function. He can merely decide whether to intervene, guide, or direct, or whether he is prepared to accept what emerges as an auto-generative procedure.” [5] Such distances introduce an attitude of letting go, of engaging in something that unfolds or “in which autonomous computational processes or models are set in motion, generally free of interaction.” [6]. This point of view creates a clear distinction between the process, that is to be respected, and the environment from which it emerges. Internal laws and causation condition the becoming and the development of pre-planned actions.
+            </p><p>Transparent modes of production emphasize a certain clarity but also an abstraction that remains fixed, or de-coupled with regards to a dynamic sensitivity of process discourse and creative exchange. What is interesting in these examples is how the fact of not being able to interact with certain aspects of a generative process is considered essential to the final result. That the technical limitations are considered important for the artistic outcome. A questioning takes place regarding the ‘acceptance’ of what a machine gives. This introduces a certain kind of ‘letting-go’, where modes of interaction vary between command and autonomy [7].</p>
+            <h2>Rules and heuristics</h2>
+            <p>An alternative to static rules and fixed structure can be found in the usage of heuristics. Instead of progressing towards a known goal, heuristic methods explore uncertainty and the search for objects whose contents are unknown but where a certain criteria is given [8]. Situating algorithmic processes as being shaped within a creative process, heuristics allow for real-time evaluation of a chosen direction. Actions are performed that are then “neither blind nor completely determined, but more like educated guesses” [9].
+            </p><p>An adaptive heuristic is usually effective in a dynamic setting where a simple “rule of thumbs” heuristic can be applied that leads to movement (change) in seemingly plausible directions. The adaptivity occurs if heuristics can react in relation to what is taking place in the setting at any given moment [10]. The term originates from the Greek word heuriskein [11] meaning to find or discover. It could be understood as the process of trying by example rather than following a preconceived plan. Heuristic functions always result in approximations, “good enough” solutions [12] that are subject to change. Such lively qualities fit well the permanently fluctuating sound processes implemented within CPSI as discussed below.</p>
+                  <div id="interaction">
+                    <p>&nbsp</p>
+                    <hr />
+                  </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Interaction</h1>
+            <h2>Influence</h2>
+            <p>Observing evolving, generative processes from an outside perspective introduce a certain distance. Tendencies of hierarchy, imposed control or interactions that reflect, comment or advise on something that already has an acquired form. In CPSI, a model of algorithmic containers is introduced that addresses running algorithms and their modes of interaction. The focus is on the behavioral dynamics of such methods, allowing for two categories of operation.
+            </p><p>External influence concerns direct intervention, guidance, the taking over of a certain control, splitting it or simply disturbing an active algorithmic process. Such interaction is usually one-directional where the system reacts to a provided input. Broadening such a connection, it is possible to extend the idea towards internal influence where processes react, adapt, respond or engage. This occurs in a conversational and cooperative exchange where the output is based on cumulative interaction and not a singular one [13].</p>
+            <p>In CPSI, processes are assigned a certain direction, a heuristic towards which they aim to direct themselves. This may be assessed by parametric balance, proportions or known goals. By keeping the computability of such a function accessible while a process runs, another option for interaction is introduced by evolving endpoints.</p>
+            <p>Dynamic goal setting reflects a compositional process based on discovery. It also emphasizes a two-way, responsive relation where feedback and change occur between the system and its interacting agent, a coupling through interaction that results in a mutual influence. Through such exchange, it should be clear that the purpose of the system is not simply to act on a composer's intention but also to contribute to its inception. Responses occurring as a result of interaction can have multiple causal effects in a transformative situation. For example an immediate, direct response but also a developing or evolving effect that contributes more to behavioral changes in an ongoing process.
+            </p><p>The duality of the direct and the ongoing is a central element in CPSI’s scheduling schematics where direct, micro-processes are coupled with longer, ongoing ones to create different situations of response. Special attention is given to external influences of processes that evolve over time. How does interaction occur within a movement that requires a substantial duration to manifest itself? Instead of extensive control, strong influence can be more engaging [14]. This can be achieved through a network of weighted influence-parameters but also, by adaptive interaction based on gradual behavioral changes as implemented by the CPSI interaction structures.</p>
+            <h2>Taking Over</h2>
+            <p>In CPSI, algorithms are distributed to several parts, each of which has its own modes of interaction. When selecting process sections or partial specifications [15] for further engagement, one can design a formative frame of reference, a contextual view of agency. The separation of data and process and the focus of interaction and reconfiguration through time allows for a reiteration of algorithmic parts in real-time. Inputs can be modified and rules altered while a process runs. This also emphasizes the temporal side of interacting and evolving processes. Perhaps a truly interactive algorithm is developed in dialogue through accreditation where the lack of a clear starting state or default pathway [16].
+            </p><p>Andy Lippman understands interactivity as a mutual and simultaneous activity where agents might have similar goals. He determines important factors to include a ‘limited look ahead’ and the absence of any default programmed routes [17]. Systems that improve or redefine themselves through interaction and adaptive heuristics. An attitude of tuning computational processes in real-time against any pre-computing of potential paths but also through interrupts or turn-taking as points of departure. In CPSI, autonomy can be halted through a shared agency and by the taking-over of process part. This introduces a methodology situated “between the formal and the craftsmanship” [18] where processes start and stop and their isolated parts can be further treated and coupled with external intervention.<p>
+            <h2>Interrupts and Scheduling</h2>
+            <p>Algorithms that instantiate processes, cause artefacts and commit to linear (perhaps predictable) progress are often plausible as subjects of radical causality such as the rapid cutting (in and out) of their original context. Given an input or initial condition, an algorithmic process can be set to motion, interrupted, forced, blocked or disturbed. It is possible to understand machines as systems of interrupting flows, where the cutting of one ensures the continuity of another [19]. An interrupt can translate to a very direct causation or disturbance of an ongoing movement. It reflects a well-known model of allocating computation to running processes where it is used to enter a process during the time it is running. “The interrupt not only creates a break in the temporal step-by-step processing of an algorithm but also creates an opening in its ‘operational space.’“ [20]
+            </p><p>Applying interrupts to generative algorithms introduces complexity in a causal chain where the inner program is not sufficient in itself but must be coupled with external influence that decides how and if it should be allowed to run. The interrupt is in a certain sense a condition of cooperation. It makes way for the many instead of the one and holds a special position towards algorithms and their completeness since it possesses the ability to force them to halt.</p>
+            <p>What value offers an algorithm that stops before completing, at the expense of another activated as consequence? Could such modes of interaction provide ways of engaging with unfolding musical processes? In CPSI we encounter a conflict of methodologies for operating sound process. On the one hand, we have the open, partial algorithm made accessible through various ways of interaction and that by design should be refined as it evolves. On the other hand, we treat such processes through external forces, through interruptions that have a direct and straight effect based on a well-established hierarchy. Processes are started, completely stopped, resumed, halted to a point or treated through interaction and the taking-over of a given algorithmic state.
+            </p><p>Interrupts offer a dynamic way of balancing autonomy and command through the interaction with generative processes. Interrupting a flow of events also introduces anticipation patterns, hierarchy (what can be interrupted and how the interrupt takes place) as well as questions of how interrupts affect (or break) silence [21].</p>
+            <div id="system">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>System</h1>
+            <p>CPSI is implemented in the SuperCollider environment [22]. The system consists of distributed parts that relate to a central component, the scheduler responsible for the arrangement of all the container-bounded algorithms. The architecture has been constructed to support an interactive working-mode focusing on scheduling partial processes with gradual and direct interaction.</p>
+            <h2>Partial Processes</h2>
+            <p>Processes treated by the CPSI scheduler are implemented as SuperCollider patterns. Patterns offer higher-level representations (or blueprints) of musical tasks and can be understood as “abstract representations of sequences independent of any specific performance.” [23]. The processes follow a partial construction pattern that allows them to be treated as separate blocks. The methods are segmented by design in order to facilitate scheduling and to support multiple access points. This imposes constraints on the algorithms supported within CPSI but also enhances certain behaviors. Processes in motion, supporting dynamic, uncertain behaviors, full of details but without any fixed goal are suitable in this context.
+            </p><p>Each block represents a certain state of an algorithmic process that can in itself be further developed. These processes combine both sound and control and in many cases, the two overlap to a great extent.
+              </p>
+            <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 row">
+                <figure>
+                  <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/TakingOver.png" alt="Taking over"/>
+                  <figcaption>Algorithms as partial processes with operations that can be applied to each part. The resulting shape comes about as a product of the blocks. Each block can later be selected and treated further through post-processing.</figcaption>
+                </figure>
+              </div>
+            <p>Various methods of event generation have been implemented using stochastic functions, iterative equations, and state machines. Synthesis methods (mostly time-domain based) include pulsar synthesis, waveset distortions, noise and chaos functions as well as various types of granular synthesis. These will not be discussed further, what is most important in relation to the scheduling are their process-based qualities. To always produce data and continuously evolve, to contain different states while being capable of running on their own (and forever) until being subject to a scheduling action.</p>
+            <h2>Adaptive Heuristics</h2>
+            <p>Each partial process in CPSI produces data according to a given heuristic function. The processes exhibit a tendency towards satisfying this heuristic and such guidance can be altered while a process is running. In CPSI, a library of evaluation function has been implemented that can be applied to various aspects of an algorithm such as the evaluation of pitch, duration or dynamics. Functions exist that favor scarcity, availability, primacy or recency [24] of values, each with their special effect on a running process. Instead of being domain-specific or context-dependent, the CPSI heuristics are designed as general and important by the fact that they can be applied on the fly and adapt while the generative aspects continue.
+            </p><p>A given algorithm is realised by sequentially scheduling each of the blocks it consists of. However, once activated a certain block can also be repeated, extended or transformed for further development. The block sequence can be altered and the output increasingly treated through filtering, mapping or repetition of generated events. This ‘taking over’ of a running process or algorithmic state enables an interaction that zooms into the temporal windows of operation.</p>
+            <h2>Direct Actions and Gradual Influences</h2>
+            <p>Two main categories of interaction are supported in CPSI. Direct actions and gradual influences. These reflect a certain attitude towards generative processes where a direct action (10 - 200ms) causes an immediate (and often forceful) change but a gradual mode (> 1000ms) proposes more of a conversational mode, employing a higher focus on behavioral changes.
+            </p>
+            <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 row">
+              <figure>
+                <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/InfluenceBigger.png" alt="Influence"/>
+                <figcaption> An  interaction overview based on writing processes, heuristic functions, process-blocks, influence/ intervention and the switching between active and halted states.</figcaption>
+              </figure>
+            </div>
+            <p>
+            Gradual influence has been implemented here through process changes such as the responsiveness and adaptation of given variables but also by behavioral parameters such as entropy or density. While a process is executing, its data or heuristics can also be modified with important creative consequences.</p>
+            <h2>Scheduler</h2>
+            <p>Besides providing a framework for accessing generative algorithms through interaction, CPSI contains a scheduler for activating them in various ways. The scheduler encapsulates important behavioural aspects for an algorithm that is executed, scheduled, stopped and subjected to ongoing and direct influences. The model consists of three main components, the process queue, the scheduler and the scheduling actions.</p>
+            <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 row">
+              <figure>
+                <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/Interrupt.png" alt="Influence"/>
+                <figcaption>Blocks are scheduled by a higher-level mechanism. They can be interrupted at any time and either suspended or ‘frozen’ and then treated further by an output module. Each interrupt can have potential ‘actions’ designed to articulate a specific interrupt.</figcaption>
+              </figure>
+            </div>
+            <p>Once activated, the scheduler handles items from the process queue. Those are usually blocks from a larger algorithm that can be treated individually or in sequence. Once a block has completed, the scheduler proceeds by handling the preceding item in the queue.</p>
+            <p>At any point, an interrupt can be made. The interrupt halts the ongoing process and either activates another block or silently suspends. During an interrupt, special actions can be put in motion. These can be of any kind but are usually short sequences of sounds intended to articulate a certain interruption or change of events. Moreover, the interrupt actions can be chained to further extend the causality effects of an intervention. An interrupt can also be connected to post-processing that affects the block that is interrupted. For example, halting a rhythmic pattern can be executed by sharply applying a filter removing a substantial part of the frequency spectrum. These transformations evoke imprints of interference where “disturbance intercepts and reshapes the signal during interaction” [25]. Executing actions and post-processing procedures enables creative musical performance using the scheduler.</p>
+            <p>The scheduler can also be programmed through an event-list and as such execute algorithmic processes. Various modes of extensions are possible beyond the basic scheduling. It is possible, for example, to use the adaptive heuristics belonging to a certain process to determine their order in a process queue. This allows for mixing methods in creative ways based on a given heuristic function. Another option is to run multiple schedulers at the same time each with a slightly different mode of functionality or interaction. Finally, the scheduler implements the same interface as the algorithmic containers. This means a nested approach is possible that allows one scheduler to activate another one, forming more complex causality chains.</p>
+            <p>An example of a scheduling situation might be as follows: Let the scheduler <em>S</em> contain a set of blocks <em>B = {B1,...,Bn}</em> where a single block can be expressed as a bundle  <em>B <sub>i</sub> : < p<sup>b</sup> ,d<sup>b</sup> ,i<sup>b</sup> ,h<sup>b</sup> ,a<sup>b</sup> ,n<sup>b</sup> > </em>with the attributes:</p>
+            <p>
+              ● <em>p<sup>b</sup></em>, pattern to be played <br>
+              ● <em>d<sup>b</sup></em>, block duration <br>
+              ● <em>i<sup>b</sup></em>, interaction interface <br>
+              ● <em>h<sup>b</sup></em>, heuristic function <br>
+              ● <em>a<sup>b</sup></em>, interrupt action <br>
+              ● <em>n<sup>b</sup></em>, unique identifier
+            </p>
+            <p>
+              S supports four main scheduling operations: <br>
+              ● <em>schedule(S, b, i) </em>  schedule block  by index <br>
+              ● <em>reorder(S, b, n) </em> change block order to n <br>
+              ● <em>order(S) </em> change order according to heuristic <br>
+              ● <em>cancel(S, b) </em> cancel a block
+            </p>
+            <p>
+              S supports six main intervention methods: <br>
+              ● <em>interrupt(S, b) </em> activate interruption <br>
+              ● <em>interrupta(S, b, a) </em> interrupt with action <br>
+              ● <em>interruptp(S, b, p) </em> processing interrupt <br>
+              ● <em>interact(S, b) </em> transfer process to interaction <br>
+              ● <em>heuristic(S,b) </em> alter heuristic function <br>
+              ● <em>write(S,b) </em> alter parameter data while processing
+            </p>
+            <p>
+              Scheduling and intervention activities can take place in parallel and/or in sequence. These combine in forming an output stream that can be both automated but, through intervention, also be fully manual. Two main algorithms run while the scheduler operates.<br>
+1. The processing of the queue items or partial processes (blocks) that have been added to the queue.<br>
+2. The conversion of the block data to sounds streams by processing the queue items.<br>
+These are listed in a simplified format here below.<br>
+            </p>
+            <p>
+            <pre>
+              <strong>Algorithm 1: PROCESS QUEUE (S) </strong>
+Input:  S
+while  S is not empty:
+ while  items in input (S, b) do:  set  job j = s  chedule (S, b, i)  if   process_halted (j):
+interrupt(S, b)
+ if   process_transfer (j):
+interact(S, b)  wait (i.duration)  order (S)
+i = i + 1  end while wait(S)  end while
+            </pre>
+            <pre>
+              <strong>Algorithm 2: PROCESS ITEM (b) </strong>
+Input:  (S,b) while  b.duration
+for each  pattern  p  in b:  set  e =  new_event ()
+set  h =  heuristic (b)  while  has_values (p) do:
+compose_event (e, h, p.value)  process_event (e)  wait (e.duration)
+end while  end while
+            </pre>
+            </p>
+            <div id="conclusions">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Conclusions</h1>
+            <p>This article has presented interrupts as a compositional and performative tool in the context of generative algorithms and event scheduling. The interrupt operates on partial, dynamic processes that use adaptive heuristics while running. Direct action, process take-over, and gradual influence were presented as possible modes of interaction. A software framework, CPSI, was introduced that implements the concepts that have been covered and its software architecture was demonstrated. The CPSI scheduler, its algorithmic containers and object ecosystem offer a new perspective for representing and interacting with generative processes in an open and direct manner.
+            </p>
+            <p>
+            !{interrupt.wav}
+            <figcaption>Epicycle (2017) excerpt</figcaption>
+            </p>
+            <p>
+            !{prisme.wav}
+            <figcaption>Prisme (2018) excerpt</figcaption>
+            </p>
+            <p>CPSI has been used by the author for the creation of a live performance (Vicinity Pulse, 2017) and the composition of 2 x 8-channel fixed media piece (Prisme, 2018 and Epicycle, 2017). In both cases, the scheduling effects are dominant where different processes get  ‘activated’ and ‘interrupted’ contributing to a progression of the music. The framework offers many original viewpoints in terms of addressing algorithms and dealing with evolving criteria and uncertainty.
+            </p>
+            </div>
+          </div>
+        <div id="references">
+          <p>&nbsp</p>
+          <hr />
+        </div>
+        <div class="row references">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h2>References</h2>
+            <br>
+            <p>[1] J. Rohrhuber, “Algorithms in Anthropology” http://wertlos.org/~rohrhuber/articles/Rohrhuber_Algorithms_in_Anthropology.pdf</p>
+            <p>[2] B. Latour. "On Technical Mediation" in Philosophy, Sociology, Genealogy. Common Knowledge, pp. 31-37, 1994.</p>
+            <p>[3] M. Mahmoody, and A. Wigderson, A. “Black Boxes, Incorporated”,2009.https://www.cs.virginia.edu/~mohammad/files/papers/BlackBoxes.pdf</p>
+            <p>[4] M. Solomos, “Xenakis’s Philosophy of Technology Through Some Interviews” in Proceedings ICMC|SMC, Athens, 2014, pp.54-60.</p>
+            <p>[5] R. Kayn, “Sociological, Technological, and Aesthetic Aspects of Acoustic Innovation in My Work”, 1990. https://kayn.nl/text/</p>
+            <p>[6] A. R. Brown. “Creative Partnerships with Technology: How Creativity Is Enhanced through Interactions with Generative Computational Systems” in Musical Metacreation: Papers from the AIIDE Workshop, 2012. pp.14-20.</p>
+            <p>[7] M. Solomos, “Cellular Automata in Xenakis’ Music. Theory and Practice” In Georgaki, A. & Solomos, M. Eds. Proceedings of the International Symposium Iannis Xenaki, 2005, pp.120-137</p>
+            <p>[8] M. Schwaninger in “Integrative Systems Methodology” in “Systems Science and Cybernetics, Volume II” EOLSS Publications, 2009 pp.223-244.</p>
+            <p>[9] F. Heylighen and C. Joslyn, “Cybernetics and Second-Order Cybernetics” in Encyclopedia of Physical Science & Technology (3rd ed.), Academic Press, New York, 2001. pp 1-24. </p>
+            <p>[10] H. P. Young. "Adaptive Heuristics" in "New Palgrave Dictionary of Economics, Second Edition", Palgrave, 2008.</p>
+            <p>[11] R. Marti. "Heuristic Methods" in "The Linear Ordering Problem", Springer, 2011, pp.17-40.</p>
+            <p>[12] E. Finn. “What Algorithms Want: Imagination in the Age of Computing”, The MIT Press, 2017.</p>
+            <p>[13] T. Gifford, and A. Brown, "Cybernetic Configurations: Characteristics of Interactivity in the Digital Arts." Presented at the ISEA 2013, Sydney, 2013.</p>
+            <p>[14] A. D. Campo. "Lose control, gain influence - Concepts for Metacontrol" in Proceedings ICMC|SMC, Athens, 2014, pp.217-222.</p>
+            <p>[15] P. Wegner. "Why interaction is more powerful than algorithms" in "Communications of the ACM", ACM, 1997. pp.80-91.</p>
+            <p>[16] M. Murtaugh "Interaction" in "Software Studies \ a Lexicon", The MIT Press, 2008. pp.143-149. </p>
+            <p>[17] M. Lister, J. Dovey, S. Giddings and K. Kelly, New Media: a critical introduction, Routledge, 2009.</p>
+            <p>[18] M. Solomos. "An introduction to Horacio Vaggione musical-theoretical Thought" in Contemporary Music Review, Taylor & Francis, 2005, pp. 311-326.</p>
+            <p>[19] G. Deleuze and F. Guattari. "Anti-Oedipus: Capitalism and schizophrenia", University of Minnesota Press, 1977.</p>
+            <p>[20] S. Yuill. "Interrupt" in "Software Studies \ a Lexicon", The MIT Press, 2008. pp. 161-166</p>
+            <p>[21] G. Smith. “The Aesthetics of Interruption” in “Systemic Therapy as Transformative Practice”, Everything is Connected, 2016, pp.222-232. </p>
+            <p>[22] J. McCartney, "Rethinking the Computer Music Language: SuperCollider" in Computer Music Journal, 26(4), 2002, pp-61-68.</p>
+            <p>[23] R. Kuivila, R. "Events and Patterns", in "The SuperCollider Book", Cambridge, MA: MIT Press, 2011, pp. 179-206.</p>
+            <p>[24] D. Lockton, "Cognitive biases, heuristics and decision-making in design for behaviour change", working paper, http://danlockton.co.uk</p>
+            <p>[25] L. Eustáquio, M. Carvalhais, “Interaction Under Interference”, Proceedings of xCoAx, Lisbon, 2017. pp-379-3<p></p>
+          </div>
+        </div>
+      </div>
+      <footer class="row">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <p>By <a href="http://www.bjarni-gunnarsson.net" target="_blank">Bjarni Gunnarsson</a>. On <a href="https://www.researchcatalogue.net">Research Cataloge</a>. At <a href="https://www.koncon.nl">The Royal Conservatoire</a> & <a href="http://www.sonology.org">Institute
+              of Sonology</a>.</p>
+        </div>
+      </footer>
+      <!--  COPY END  -->
+    </div>
+  </div>
+</body>
+
+</html>

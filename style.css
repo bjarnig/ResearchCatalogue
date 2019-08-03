@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Lora|Open+Sans:400,900|Playfair+Display:900");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.css"); */
+@import url("https://fonts.googleapis.com/css?family=Oxygen:300");
+
+a:link {
+  /* color: #D81E5B; */
+  color: #21A0A0;
+}
+
+a:visited {
+  color: #21A0A0;
+}
+
+:root {
+    --blockquote-color: "#333333";
+}
+
+header button, header [type="button"], header .button, header [role="button"] {
+background: #ffffff;
+}
+
+#navigation {
+    visibility: hidden;
+}
+
+#bgtest {
+    visibility: hidden;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+}
+
+.exposition {
+    background-color: #FFFFFF;
+    font-size: 100%;
+    line-height: 125%;
+}
+
+html, * {
+     font-family: 'Oxygen', sans-serif;
+}
+
+ header {
+  background: #ffffff;
+}
+
+.button {
+  background: #ffffff;
+}
+
+.exposition-content {
+    /* margin-top: -100px; */
+    /*  TODO: Include in prod! */
+}
+
+.exposition .nav {
+    color: #352D39;
+    position: sticky;
+    top: 0;
+}
+
+.exposition em {
+  color: #3A3335;
+  /* 3A3335 */
+}
+
+.exposition .piece {
+  color: #E53D00;
+}
+
+.exposition .rinfo {
+  font-size: 10pt;
+}
+
+.exposition .nav a {
+    font-family: 'Lora', serif;
+    color: #FF6978;
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.exposition .nav .active {
+  color: #352D39;
+}
+
+.exposition  h1 {
+    font-family: 'Lora', serif;
+    font-size: 28pt;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+.exposition h2 {
+    font-family: 'Lato', serif;
+    font-weight: 800;
+    font-style: bold;
+    font-size: 23px;
+    line-height: 1.6;
+    margin-top:30px;
+    margin-bottom: -20px;
+}
+
+.exposition p {
+    margin-top:25px;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.exposition .references {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.exposition .references p {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.exposition li {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.8;
+}

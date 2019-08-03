@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Local Development</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.css'>
+  <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+  <div class="exposition">
+    <div class="exposition-content">
+      <!-- COPY START -->
+      <header class="sticky row">
+        <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+          <a href="https://www.researchcatalogue.net/view/540350/540351" class="button">Introduction</a>
+          <a href="#agency" class="button">Agency</a>
+          <a href="#proximity" class="button">Proximity</a>
+          <a href="#context" class="button">Context</a>
+          <a href="#becoming" class="button">Becoming</a>
+          <a href="#construct" class="button">Construct</a>
+          <a href="#references" class="button hidden-md hidden-sm">References</a>
+        </div>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-sm-offset-1 col-lg-offset-3 col-md-offset-2">
+            <div class="rounded" style="background:#ffffff; width: 100%; margin-left: 20px; margin-top:60px; margin-bottom:-65px;">
+              <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/network1.png" width="527" height="249">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <p>&nbsp</p>
+            <h1>Context and Scope</h1>
+            <p>By <a href="http://www.bjarni-gunnarsson.net" target="_blank">Bjarni Gunnarsson</a></p>
+            <p>This exposition forms part of my research on the positioning of algorithms for composing computer music made at the <a href="https://www.koncon.nl">The Royal Conservatoire</a> and <a href="http://www.sonology.org">Institute of Sonology</a> in The Hague from late 2017 to early 2019. It is motivated by an interest in problems concerning generative algorithms and the apparent environment they form part of. It
+              continues from my previous proposal <a href="https://www.researchcatalogue.net/view/543155/543156"> considering algorithms as black boxes, accessed from an external point of view and through interrupts and intervention.</a>
+            </p>
+            <p> This text concerns issues of algorithms, agency, proximity, context and the becoming of sound processes. It questions the scope and potential boundaries of an algorithm, the creative space relating compositional practice with
+              computers and the idea of an algorithmic environment. By discussing the properties of context and the boundaries that shape algorithmic processes, the following questions will be addressed:</p>
+            <ol>
+              <li>How can an experimental environment be created (or composed) for generative algorithms to operate within, be conditioned by or emerge from?</li>
+              <li>How can interaction with generative processes take place through a model based on an artificial environment or generated context?</li>
+              <li>How can the creation of computer music take place through a dialog with a software environment that is being constructed in parallel to the music that is created with it?</li>
+              <li>How can a generic and abstract compositional algorithm translate to a specific, articulated singularity that is unique to a specific sonic process but also reusable as 'black boxed' operation?</li>
+            </ol>
+            <p>These questions will be addressed by exploring ideas relating to algorithms and their context, by proposing software approaches that address such environments and by discussing the creation of two computer music compositions. <span
+                class="piece">Polytree</span>
+              (2018) and <span class="piece">Copaline</span> (2019).</p>
+            <div id="agency">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Agency</h1>
+            <p>
+              The works discussed in this text question the relationship between the process of composing computer music and the activity of writing and using computer programs while the creation takes place. Instead of making a clear distinction
+              between creator, tool and artefact, the idea here is to situate algorithmic processes on the borders of idea and implementation. Such a viewpoint involves dynamic scope, introduces shared agency and favors a process-based view of
+              sound.
+            </p>
+            <p>
+              Generative algorithms translate to computer programs that can be used for composing music. These can be thought of as environments, collections of entities capable of processing information and behaving according to certain criteria.
+              An important factor is the nature and orientation of such processes. <em>Automated</em> procedures exhibit a deterministic and mechanical unfolding whereas <em>autonomous</em> processes ensure an internal interpretation and assessment
+              for changes in behavior [1].
+            </p>
+            <p>
+              Stable and predictable, automated tasks often execute very precise instructions and directly reflect specifications as defined by their creator. Processes based on autonomy, on the other hand. rather
+              promote possible outcomes or output ranges, behavior instead of fixed results.
+            </p>
+            <p>
+              Should algorithms be defined in terms of how dependant they are to their inputs or categorised by behavior? Does such a viewpoint not simply enforce a fixed-tool (black box) point of view that limits any possible shared space between
+              programs and plans? In situations where generative activities are pivotal, it is important to consider the scope of their context. This includes the processes that materialize within it, temporal influences, but also the relation to a
+              creator that influences when and how such activities take place.
+            </p>
+            <p>
+              Instead of progressing towards pre-defined goals, compositional algorithms are understood here as being bounded by (or constructed from) the extended range of a creative context and as such, to be singular to each moment where they
+              unfold. <br>
+            </p>
+            <h2>Cognitive assemblage</h2>
+            <p>In her book “Unthought: The Power of the Cognitive Nonconscious”, literary critic Katherine Hayles introduces the term cognitive assemblage as something that encompasses the human-machine relationship. It is a force that can:
+              <blockquote cite="Katherine Hayles, 'Unthought'">“come together, create connections between human and technical actors, initiate, modify, and transform information flows, thereby bringing contexts into existence that always already
+                determine the kinds and scope of decisions possible within milieus and the meanings that emerge within them.” [2].</blockquote>
+            </p>
+            <p>
+              <em>Assemblage</em> refers to associations of “connection, event, transformation, and be­coming”. <em>Cognition</em>, on the other hand, denotes the “process of interpreting information in con­texts that connect it with meaning”. The
+              cognitive assemblage introduces a framework that determines possible actions within a certain environment and conditions the meaning that emerges within it.
+            </p>
+            <p>I would like to propose an extension to the conditions of generative algorithms in the context of computer music that includes the loosely coupled but transformative flows of Hayles' cognitive assemblage. Such an arrangement displays
+              any creator as a component in the creative relationship with technical processes which is useful from the point of view of process-based sound focused on change and self-modification.
+            </p>
+            <p>An assemblage can transform generative activities,
+              deterministic routines, interaction procedures, and transformation processes. In contrast to networks, a cognitive assemblage introduces a fluidity among elements where their totality is “not so tightly bound that it cannot lose or add
+              parts, yet not so loosely connected that relations between parts cease to matter” [3]. The assemblage acts as asynchronous, embedded in the fabric of composition and opposes any instrumentalist view of technology.</p>
+            <p>Fluctuating boundaries and context-acquired development can shape the conditions of a musical becoming and create a common space shared by a composer and autonomous technical processes. The two become interconnected and overlap
+              through different functions ranging from decision making to material creation. They enhance and support each other while still being framed within a common situation. Such an exchange transforms generative procedures into drivers of
+              creative activity instead of simply being their consequence.
+            </p>
+            <br>
+            <h2>Technical mediation</h2>
+            <p>An important goal of this research is how to orient the design of environments, algorithmic processes and cognitive assemblages that favor a process-based attitude towards synthesis and sound. I would like to propose sound-itself as
+              possessing characteristics of dynamic activities, continuous change, uncertainty and adaption. The sound-material discussed in this text is all computer generated and created only once a certain environment is activated. The methods
+              developed employ generative algorithms for the distribution of granular particles, sample points for waveform creation and the creation of modulation trajectories. Sound occurs as the result of a construction procedure and is build up
+              through the boundaries set by neighbouring processes and activities that occur within the same context. I want to situate synthetic sound processes as a fundamental part of my compositional practice and, as such, highly conditioned to
+              by the technical environment they occur within.
+            </p>
+            <p>
+              <figure>
+                <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/ContextScope.Agency.png" alt="Taking over" />
+                <figcaption>Figure 1. Processes actualize from potential algorithms. They are bounded by a current 'focus' and context they occur in.</figcaption>
+              </figure>
+            </p>
+            <p>
+              The process of mediation provides conditions for an agent, within a given medium, to acquire form [4]. Technical mediation as defined by Bruno Latour, draws an agent into an intervening relationship with another one through technical
+              objectives [5]. Such a correspondence can result in the translation of the agent’s objective into a new goal (the third agent). The new goal does not necessarily correspond to neither agent’s original intentions. A mediation can hence
+              be constructive where the translation involves the creation of artifacts that did not exist prior to the process (a new goal) and influences how a technical agent conditions a human one within a dynamic environment. The composition of
+              actions, on the other hand, involves several interruptions towards a goal (through different, newly-created agents). Here, an agent seizes upon another (new) one, returns to a task and finally completes it (or a related goal). Both
+              types of mediation can contribute to novelty, but also transform through adaptation and “reversible blackboxing” that involves passage points, alignment and convergence to sharpen newly created knowledge.
+            </p>
+            <p>
+              Reconsidering previously made plans means changing perspective, a certain kind of interaction. Technical mediation enables the creation of previously unknown situations where agents have altered each other in reciprocal ways. In my
+              creative practice, mediation takes place through synthesis extensions and variation pipelines that allow for encounters that can alter any process while it takes place. This questions the goal-oriented attitude implied by Latour’s
+              mediation where the focus is rather on an arrival point but less on how to get there. By constructing sound itself through mediation, technological relationships emerge that demonstrate how overlapping the agency of the parties
+              involved is, and how simultaneously they can alter each other.
+            </p>
+            <h2>Partnership</h3>
+              <p>Computer music based on shared agency and autonomous processes questions situational aspects of the creative activity. How a composition comes to life is perhaps not in the creator’s mind or within a computer, but in the interplay
+                between the two. This introduces a mutually influencing aspect where the “agency of a technological partner is typically considered more than merely its ability to influence human perception or action, but rather its active
+                contribution to the partnership.” [6]. The influence a human has on the behavior of a generative process can in return be heavily influenced by the technical constraints a generative process imposes. Instead of simply responding to
+                each other's actions, the parties involved should adapt or evolve or “make alterations to their own response strategy” [7]. To some extent, this is quite contrary to the attitudes of careful planning and detailed preparation that is
+                often encountered in classic algorithmic composition[8]. Instead, the composition and creative process overlap (or merge) creating a situation of continuous change, where an “algorithmic composition is an entity under transformation,
+                just as much as the sound that results from it” [9].
+              </p>
+              <p>A bounded partnership removes computation away from the suppressions and unidirectional relation enforced by algorithmic abstractions. It opens it up, blends responsibilities and
+                “thrusts it into the tainted and unpredictable space of dynamic and shared environment.” [10].
+              </p>
+              <div id="proximity">
+                <p>&nbsp</p>
+                <hr />
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Proximity</h1>
+            <p>
+              Arriving at the compositions described here below, I have developed a technical environment for shaping algorithmic processes and sharing information somehow inspired by the idea of an cognitive assemblage. A major design principle has
+              been how to facilitate a direct access to any generative process as well as to the sound itself. This has been achieved by using computer code directly as medium of expression.
+            </p>
+            <p>
+              I have created a set of tools using the SuperCollider language [11] labelled ADEC (Assamblage for Direct, Environment-bounded Composition). The framework combines various extensions that facilitate a code-first approach to composition.
+              The main starting point is to build up by typing and
+              evaluating code from scratch. The additions I have developed are designed with this in mind and always extend recently written code blocks. The approach is somehow similar to the live coding approach suggested by Julian Rohrhuber and
+              others[12]. However, it also differs in important ways. For example, a major feature of my environment is that besides the activity of typing code, other process can be activated that influence that activity. These can be interacting
+              with or observing the compositional activity while it takes place.
+            </p><p>By activating parallel processes during the craft of developing code, a distributed and generative environment emerges. Here the code itself not only acts as the
+              smallest construction unit for a piece, but also as an influencing factor in a network of compositional algorithms.
+            </p>
+            <p>
+              Shared agency introduces a closeness of involved processes that are often direct and tightly coupled. Through technical mediation, sharp but lean procedures are required in order to embrace the potential of dynamic goals. This attitude
+              bears resemblance to experimental systems as proposed by Rheinberger, systems that function as research endeavors, that are open enough to allow for the generation of unprecedented events (new techniques and models) while at the same
+              time remaining sufficiently close to avoid breakdown [13]. An experimental system displays a tendency of becoming, forming conjunctures that arise as results from unexpected events in the systems [14]. These bridges can have a life of
+              their own, producing epistemic things, that once stabilized are no longer objects of research but rather technical things, (the products of research) [15].
+            </p>
+            <p>
+              Acting on objects that have not been created by intention (that emerge), and their potential to generate original artifacts, can reflect a compositional process in which musical materials are being produced according to their relation
+              to a specific context. Such an environment is where experimental activity takes place, rendering novelty possible through iterative refinement, but also as establishing a common thread or reference-frame for the outputs of the
+              creation.
+            </p>
+            <p>
+              Working with ADEC has an exploratory nature of research similar to these experimental systems. However, what is important in the case of ADEC is the actual absence of any system or concept that can be "black-boxed". Rather the idea is
+              how to build such a system during a compositional process, that the system merges with the artefact and how that can be done with a minimal amount of abstractions.
+            </p>
+            <h2>Multilocal</h2>
+            <p>
+              Proximity evolves through details and close connections. It opposes any possible ‘single point of failure’ or global laws. Horacio Vaggione has warned against the "the seduction of the unarticulated” suggesting rather a compositional
+              attitude that favors singularities and local processes over universal laws. “Any formalization that regards only a single level, for example, a single non-interactive law of global distribution of points into linear time, is simplistic
+              and reveals a flat way of thinking”[16]. His levels involve fluid temporal windows that offer an operational reference frame, a multi-scale orientation that in nature is always “multilocal” [17].
+            </p>
+            <p>
+              I want to incorporate his idea of multilocality to the practice of writing computer code and instant access to sound itself. Working with the ADEC develops through the use of code snippets[ref needed]. Instead of pre-build
+              (pre-composed?) components, an extension is made available by inserting the code itself into an active environment. This allows accessing every detail of emerging sonorities while the composition takes place instead of simply
+              connecting pre-build modules as is sometimes the case in electronic music.
+            </p>
+            <p>
+              Proximity emerges through neighboring relations. This allows for material to be modeled as relational, forming nodes, events, and relations that can be thought of as parallel, or closely distributed. Unfolding such connections,
+              adjoining relationships are discovered that can be closely linked through a history of becoming, offering a compositional potential for placement in time[18]. To choose a starting point and from there attempt to arrive at others. Such
+              local processes are fundamental to composing with ADEC and, I would argue, essential in order to couple generative processes with dynamic textures and process-based sound.
+            </p>
+            <h2>Abstraction</h2>
+            <p>A focus on the local enables the creation of a system or process, that is set in motion and operates with a certain degree of autonomy. An important perspective is how a focus on the singular (or local) can introduce movements in time
+              and create new relations among neighboring entities. Aesthetics of proximity favor short-range relationships, interactions and a “limited ability to perceive the environment.”[19]. They introduce materials that can generate and
+              self-organize while becoming whole: like an organism.
+            </p>
+            <p>Technical autonomy usually depends on abstraction or attempts to generalize behavior. Generalizing often involves a translation, a mapping between different modes of representations
+              in order to simplify or combine. However, processes of abstraction can distantiate agency from its origin, sometimes introducing a by-product “a remainder, a set of discarded information—the différance, or the crucial distinction and
+              deferral of meaning that goes on between the map and the territory” [20]. Computer models can, in fact, increase remoteness through complex layering when actually a direct or close relation is preferred.
+            </p>
+            <p>
+              The libraries and extensions of ADEC reflect a rather critical view of abstraction for compositional purposes. Concepts can actually be combined and “black-boxed” but only within the context of a specific composition and during the
+              creative act of constructing from pure sound as first principle.
+            </p>
+            <p>
+              Reflecting on the possible future of musical systems based on algorithms, Paul Berg remarks that “useful musical generators are needed. They should reflect reusable and general concepts that can be applied to create musical
+              expressions.” [21]. Useful here are his ideas of local processes or “musical generators” that are generic enough to be suitable in different situations. They concern material generation rather than proposals towards global form. Of
+              interest are also his conclusions that “the necessary compositional abstractions are not hierarchical descriptions of entire compositions, but generators of musical material or gestures.” From a temporal perspective, this suggests a
+              certain threshold, a window or reference-frame within which generative processes are particularly fruitful.
+            </p>
+            <p>
+              It can be said that the world is not made of hierarchical units that easily fit compositional intentions. The transparency of general abstractions is highly dependent on time-scales and not something that pre-exists to the act of
+              composing. Despite the fact that algorithms are often thought to be adaptable to some sort of generic situation, the fact is that the smoothness of generality can actually prevent the creation of situations consisting of original parts
+              that are irreducible to anything besides their own, singular, placement in time.
+            </p>
+            <div id="context">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Context</h1>
+            <p>The context of generative processes is often discussed by referencing their external surroundings. For example performance conditions or the surrounding environment of a certain piece[22]. It is therefore important to clarify that for
+              our current discussion, the concepts of ‘environment’ and ‘context’ are used exclusively within the scope of a software environment or in the mental space created by a human agent and any generative processes operated. In this case, a
+              particular ‘environment’ encapsulates all relevant data that influence the behavior of an algorithm.</p><p> The context created by an environment “is the world-state data and arguments that the algorithm has access to”[23]. Such applications
+              can involve mental domains and the ‘internal dimensions’ of a particular context including goals, decision making or evolving ideas[24]. Similar to divergent thinking, a multidimensional approach to problem-solving can be introduced
+              where many solutions to a single musical problem are generated [25]. Such an expansion of possible outcomes works well in a local, associative context where different entities articulate each other.
+            </p>
+            <!-- <p>
+              <figure>
+                <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/ContextScope.Assamblage.png" alt="Taking over" />
+                <figcaption>Figure 2. Processes actualize from potential algorithms. They are bounded by a current 'focus' and context they occur in.</figcaption>
+              </figure>
+            </p> -->
+            <p>
+              Within ADEC, an important concern is how an algorithmic process reacts to the influence of its environment, the enclosing conditions from which it emerges. This issue is stressed by Wegner and Goldin in discussing the “interaction with
+              an external world”[26] where surrounding dynamics are found to be more important than the computed results. Given a clearly defined set of resources, a variety of processes can operate within the boundaries imposed by a certain
+              context. Such a shared space can be seen as a composable structure, a medium where both composition and generative activity take place. The environment introduces limits, a set of rules that condition emergent behavior but encourage
+              investigation, a space or a “dynamic medium in which premises will flow into consequences, and above all a common medium that can be contributed to and experimented with by all”[27].
+            </p>
+            <p>
+              The dynamic relationship between an environment and its surrounding, evolving processes reminds of Maturana’s concept of structural coupling, where a medium and a system evolve together and the importance of (recursive) structural
+              change to their recurrent interactions[28]. Living systems change in interaction with developments of their medium but also with respect to their own state and potential disintegration. Composing with ADEC follows a similar path where
+              the context/medium is designed to evolve through the interactions of evaluating code blocks and engaging with running processes. The medium itself can therefore be considered as central to the other activities and something that can be
+              understood as a main subject of composition.
+            </p>
+            <h2>Wiring</h2>
+            <p>‘<span class="piece">Polytree</span>’ is an 8-channel computer music composition completed in April 2018. It focuses on using custom waveforms for movements in time and suggesting formal structures that emerge from a low-level
+              synthesis processes. The majority
+              of the sound material used in the piece was created through experiments with waveshaping (bilateral folding) that is being frequency modulated through audible (high) frequency speeds. On a continuum of context reliance that ranges from
+              loosely context-free to highly context-dependent, ‘<span class="piece">Polytree</span>’ is an attempt to contextualize all of its processes where they are highly related to their context of origin.
+            </p>
+            <p>
+              !{polytree1.wav}
+              <figcaption>Polytree (2018), excerpt 1</figcaption>
+            </p>
+            <p>The Latin terms “complexus” refers to “what is woven together”[29] which makes the breaking up of a system, the isolating of parts or removal from the environment inadmissible[30]. In ‘<span class="piece">Polytree</span>’, context
+              refers to the collection of
+              influences that shape the conditions from which an algorithmic process emerges. Given a context, a movement can take place that will expand and develop itself, resembling a certain kind of evolution, a selection where certain elements
+              endure while others fade away. Within such a space belongs the data required by an algorithm, its local domain and any possible channels of interaction. The ‘dependance’ part applies to the entire aggregation, a collection of related
+              processes that can provide a rich potential of reconfiguration. This attitude is also reflected in the design of the generative processes used in ‘<span class="piece">Polytree</span>’ that allow core components to be pluggable instead
+              of internally hardwired. It
+              suggests a wiring of elements that are structured and situated without any internal dependencies.
+            </p>
+            <p>An enveloped context belongs within a compositional process and as such is dynamic and constantly refined. Viewing the context as a space of creative tension, algorithmic processes are simply processing chains triggered from within a
+              specific situation. They engage in exchanges with their environment but also expand and participate in its development.
+            </p>
+            <p>
+              !{polytree2.wav}
+              <figcaption>Polytree (2018), excerpt 2</figcaption>
+            </p>
+            <h2>Persistent state</h2>
+            <p>‘<span class="piece">Polytree</span>’ is based on an idea of a persistent state. Contributing to the evolving properties of a certain situation, the persistence of state means that an environment behaves according to the previous
+              activity that has occurred
+              within it. Opposed to an amnesic situation, a persistent environment can resume previous developments, adapt to long-term interactions and evolve in time. For such a configuration, persistence exists as a binding element through which
+              different processes are coupled and tightly-related. This view can be developed through an enduring context that encapsulates generative activity, a process that “seeks to develop artifacts which exist in a permanent evolving
+              position”[31].
+            </p>
+            <p>
+              !{polytree3.wav}
+              <figcaption>Polytree (2018), excerpt 3</figcaption>
+            </p>
+            <p>Through endurance, a creative process can be executed based on history where any previously related element can emerge with time. This allows for operations dealing directly with the low-level
+              fundamentals of any forces that have already been established. Michael Hamman has named the capacity of backtracking from a dead-end an “implicit assumption” and suggests recontextualizing as a way to trigger such a change[32]. This
+              fits well the idea of accessing, enhancing and transforming a certain context while surrounding processes are feeding from and to it.
+            </p>
+            <p>
+              Designed as adaptive, the persistent components that constitute ‘<span class="piece">Polytree</span>’, can be recomposed while they run. The importance is not where an ‘intelligence’ takes place but rather how it emerges through an
+              exchange and the development
+              of contextual influences. The shared knowledge created within adaptive systems, where it is unclear whether manual or automatic procedures are at hand, can also be applied to concepts such as decision making and musical articulation.
+              The coupling of initial conditions and processes within a persistent context allows for the emergence of complex dynamics that are based on local details instead of formal plans. Here, creative behavior emerges through local
+              experiences instead of being imposed by any global rendering. ‘<span class="piece">Polytree</span>’ exists through traces of iterative transformations where each of its aspects has been created from a certain vision of its original
+              material.
+            </p>
+            <p>
+              !{polytree4.wav}
+              <figcaption>Polytree (2018), excerpt 4</figcaption>
+            </p>
+            <div id="becoming">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Becoming</h1>
+            <p>‘<span class="piece">Copaline</span>’ (2019) is an interactive computer music piece designed to explore the live-coding and transformative aspects of my algorithmic environment. It consists of 38 short ‘code snippets’, low-level
+              modules, that have been designed
+              to be inserted while the piece takes place and used as point of departure through different combinations and extensions. The piece unfolds through integrated series of connected developments leaving traces that modify the environment
+              they originate from. Through reiteration, the impact of its base material is established in other areas of the environment and this ephemeral aspect forms a significant addition to the items discussed previously (autonomy, proximity
+              and context).</p>
+              <p>
+                !{copaline1.wav}
+                <figcaption>Copaline (2019), excerpt 1</figcaption>
+              </p>
+            <p>‘<span class="piece">Copaline</span>’ introduces a developing (or forward-looking) attitude that suggests the ‘tending towards’ characteristic so important for local and context-bounded sound processes. A compositional procedure
+              leaves traces of thought, where
+              every decision has a different imprint according to when it has been made. These turning points can be considered as artistic material that can be used for further development. Every choice represents a point in a graph of potential
+              paths. ‘<span class="piece">Copaline</span>’ takes advantage of this by storing previously executed instances of itself in order to evolve, establish and enforce its singular characteristics.</p>
+            <h2>Observations</h2>
+            <p>The architecture of context-dependent algorithms can be used to reflect their self-awareness and for external inspection. The observer design pattern is a classic of software architecture as defined by the “Gang of Four”[33]. It
+              specifies a one-to-many dependency between objects where a change in state of one results in notifying the interested others. Such a relation is also known as a publish-subscribe model. In this case, a subject publishes notifications
+              to any number of subscribers (observers) that can remain unknown the subject itself. As a result, the notification (or communication) mechanism is decoupled from any component implementation.
+            </p>
+            <p>In a virtual environment consisting of
+              generative processes and different agents, the observer pattern can be applied to direct and influence causal behavior. Changes in one entity can affect the behavior of another or trigger operations executed by a third one. Circular
+              causality can be established through the feedback of control but without forcing any hierarchy. In situations where reciprocal observation is established, it can become increasingly unclear which force is actually responsible for any
+              perceived sequence of actions.
+            </p>
+            <p>
+              !{copaline2.wav}
+              <figcaption>Copaline (2019), excerpt 2</figcaption>
+            </p>
+            <p>
+              In ‘<span class="piece">Copaline</span>’, an extensive use is made of the ADEC observers that are activated as the piece unfolds. Through circularity, the environment itself influences the intentions of its creator that in turn
+              interacts with the environment and
+              transforms prior intentions. Based on mutual dependence and feedback, the generative processes used in ‘<span class="piece">Copaline</span>’ involve shared agency and introduce blurred causation. Since this depends on state and place
+              in time, the developments
+              are usually a result of previous efforts, the building of things or enduring conditions.
+            </p>
+            <p>
+              !{copaline3.wav}
+              <figcaption>Copaline (2019), excerpt 3</figcaption>
+            </p>
+            <h2>Incompleteness</h2>
+            <p>Instead of aiming at fixed results, ‘<span class="piece">Copaline</span>’ proposes attitudes towards potential outcomes and possible variations. Considering processes as interacting, they can be said to be oriented towards a certain
+              solution space. When
+              designing such entities, local details must be expressed on the same level as the connection between entities. It is their totality and how they evolve in time that makes all the difference. One can define two important levels of
+              temporal experience: “action-oriented perception and the slower experience of the past folding into the present and both flowing towards the future”[34]. The possible interactions between these two modes are what creates richness and
+              what is interesting to such compositional situations. Direct actions and process-based movements can be executed in parallel resulting in a dynamic flux that shapes itself during the ‘becoming’ of musical material.
+            </p>
+            <p>
+              !{copaline4.wav}
+              <figcaption>Copaline (2019), excerpt 4</figcaption>
+            </p>
+            <p>‘<span class="piece">Copaline</span>’ consists of momentary events, transformative actions originating from a continuous stream that emerges as the result of a shared
+            agency and creative efforts. Originating flow of events, where ideas slide into each other, the generative activities of process-based systems somehow unfold from the past to the present. This results in a flux in which elements from the past gradually fuse into
+            the present and where both fold into some future anticipation.</p>
+            <div id="construct">
+              <p>&nbsp</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>Construct</h1>
+            <p>
+              The ADEC framework presented here consists of various components that are displayed below. One can think of at least five layers of such a system:
+              <ul>
+                <li>The context (or process environment) contains data and possible input for sound processes that might be activated</li>
+                <li>The algorithmic processes exist as possible carriers of such inputs. These can be realised by either manual intervention or by other processes. While active, such processes are based heavily on exchange with the context and
+                  produce a continuous output accordingly</li>
+                <li>A third layer involves the temporal organisation of processes and events</li>
+                <li>The fourth layer involves the treatment of manual input and direct interaction</li>
+                <li>The final layer consists of forces that transform or generate data within the context and possibly produced by either running processes or manual input</li>
+              </ul>
+            </p>
+            <p>
+              <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 row">
+                <figure>
+                  <img src="https://s3.eu-central-1.amazonaws.com/bjarnig/images/Context.png" alt="Influence" />
+                  <figcaption>Figure 3. Context-spawned processes.</figcaption>
+                </figure>
+              </div>
+            </p>
+            <p>The components that make up the environment (and a brief description of their functionality) are listed here below. Although several different libraries and components have been created, the focus is as much as possible on keeping
+              things direct and related to the session in hand. To avoiding heavy abstractions or program layers but carefully engineer the additions as extending the very basic building blocks used during construction.</p>
+            <p>
+              Components:<br>
+              - <strong> Environment </strong> (variables, functions, pipelines that form an environment) <br>
+              - <strong> EnvironmentAccess </strong> (compose by overwriting the env, adding different things) <br>
+              - <strong> SyntheticEnvironment </strong> (generate the environment variables algorithmically) <br>
+              - <strong> OperationalChain </strong> (wires together processes) <br>
+              - <strong> Lib </strong> (algorithmic variations of proc+parameters such as coupling patterns to them) <br>
+              - <strong> LibSeq </strong> (sequences processes in time through algorithmic variations) <br>
+              - <strong> Snipptets </strong> (pre-configured process collection prepared for sessions) <br>
+              - <strong> Closure </strong> (functions and other things stored with the processes) <br>
+              - <strong> Transition </strong> (evolve from one process state to another) <br>
+              - <strong> Mask </strong> (change in-time for a parameter) <br>
+              - <strong> History </strong> (repeat a session with different parameters, different inputs.) <br>
+              - <strong> Variant </strong> (algorithmically variate process instances) <br>
+              - <strong> Observe </strong> (listen to process changes and do something accordingly) <br>
+              - <strong> Autonomy </strong> (attach generative behaviour to a process) <br>
+              - <strong> Adapt </strong> (interaction that evolves during a process occurrence) <br>
+              - <strong> CrossCouple </strong> (A process is modulated by or follows the behavior of another) <br>
+              - <strong> Dependancy </strong> (inject process into others to set their state and parameters) <br>
+            </p>
+            <p>An important part of using the ADEC frameworks is the capacity of rewriting its components while it runs, to compose the system and the music as one and the same things where agency is shared and causality distributed.
+            </p>
+            <p>
+            What follows are two videos as examples of a construction process in <span class="piece">Copaline</span>.</p>
+            <iframe width="800" height="600" src="https://player.vimeo.com/video/305264654" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+            <figcaption>Video 1. A session with simple observers</figcaption>
+            <iframe width="800" height="600" src="https://player.vimeo.com/video/313406191" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+            <figcaption>Video 2. Copaline parts through a live coding with Context.</figcaption>
+            <br>
+            <hr />
+            <p>
+              In this research, I have tried to develop a certain creative workflow, a construction method where I arrive at sonic results through building from elementary units through a software framework that extends these creations. The
+              session-based attitude to framework design has many promising aspects and potential for creative situations. The persistent state, process variations, environment focus, proximity and observers also seem to contain rich potential for
+              future developments.
+            </p>
+            <p>
+              For future work I would like to extend the project in several ways. Although it has lead to the development of promising software and completed pieces, it has also left me with important questions such as:
+              <ol>
+                <li>How can a listening process be made part of the construction process of an interactive piece that is taking shape while being played? </li>
+                <li>How can the slight delay of typing code not prevent the apparent directness that is crucial for defining sound processes from scratch? </li>
+                <li>How can my proposed construction process be extended into a live performance practice instead of a method of composition? </li>
+                <li>How can an environment inspired by the idea of a ‘cognitive assemblage’ be designed with increased autonomy or detachment from its creator? </li>
+                <li>How can a possible shared agency be further emphasized as an artistic proposal beyond something that is an interactive or completed fixed piece of music? </li>
+              </ol>
+            </p>
+            <p>
+              I hope some of these can be further explored soon. For now, the current potential of the ADEC will be explored, to further expand the original intention of the project; to compose new computer music through an evolving algorithmic environment.
+            </p>
+          </div>
+        </div>
+        <div id="references">
+          <p>&nbsp</p>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <h1>References</h1>
+            <div class="references">
+              <p>[1] N. Gottschalk-Mazouz, "“Autonomy” and the autonomy of autonomous technical systems", www.phil.uni-bayreuth.de/de/team/Gottschalk-Mazouz/files/ngm-autonomy-2010.pdf
+                <p>[2] N. Katherine Hayles, "Unthought: The Power of the Cognitive Nonconscious", University of Chicago Press, 2017, pp.116-117.</p>
+                <p>[3] N. Katherine Hayles, "Cognitive Assemblages: Technical Agency and Human Interactions", Critical Inquiry 43, no. 1 (Autumn 2016), pp.32-55.</p>
+                <p>[4] T. S. Barker, "Connecting Technology, Aesthetics, and a Process Philosophy of Time", Dartmouth College Press, 2012.</p>
+                <p>[5] B. Latour, "On Technical Mediation", Common Knowledge Vol.3, n°2, 1994, pp.29-64.</p>
+                <p>[6] T. Gifford & A. Brown, "Cybernetic Configurations: Characteristics of Interactivity in the Digital Arts". Presented at the ISEA 2013: resistance is fuitile, Sydney, Australia (2013).</p>
+                <p>[7] G. Paine, "Interactivity, where to from here? Organised Sound, 7(3)", 2002, pp.295-304,</p>
+                <p>[8] P. Doornbusch, "Pre-composition and Algorithmic Composition: Reflections on Disappearing Lines in the Sand", University of Melbourne Conservatorium Graduate Publication, 2007, pp.47-57.</p>
+                <p>[9] J. Rohruber, "Algorithmic Music and the Philosophy of Time" in "The Oxford Handbook of Algorithmic Music", Oxford University Press, 2018, loc 491-1165.</p>
+                <p>[10] M. Murtaugh, "Interaction" in "Software Studies \ a Lexicon", The MIT Press, 2008. pp.143-148.</p>
+                <p>[11] H.-J. Rheinberger, "Toward a history of epistemic things: Synthesizing proteins in the test tube", Stanford Univ. Press, pp 25-28, 1997.</p>
+                <p>[12] M. Hagner & H.-J. Rheinberger, "Experimental systems, objects of investigation, and modes of representation." In M. Heidelberger, & F. Steinle (Eds.), "Experimental essays - Versuche zum Experiment", Aufl edition, 1998,
+                  pp.355-373.</p>
+                <p>[13] FL. Holmes, "Experimental Systems, Investigative Pathways, and the Nature of Discovery." In Ed. Joke Meheus and Thomas Nickles. "Models of Discovery and Creativity", Springer, 2009. pp 65-80.</p>
+                <p>[14] H. Vaggione, "Determinism and the false collective about models of time in early computer-aided composition" in Jonathan D. Kramer (Ed.) "Time in Contemporary Musical Thought", Routledge, 1993. pp 91-105.</p>
+                <p>[15] H. Vaggione, "Composition musicale : représentations, granularités, émergences", Intellectica, 2008/1-2, 48-49, pp. 155-174</p>
+                <p>[16] G. M. Koenig, "Genesis of Form in Technically Conditioned Environments." Interface 16, no.3, 1987, pp.165-175.</p>
+                <p>[17] D. Shiffman, "The Nature of Code: Simulating Natural Systems with Processing" 2012. Chapter 6. https://natureofcode.com/</p>
+                <p>[18] E. Finn. "What Algorithms Want: Imagination in the Age of Computing", The MIT Press, 2017.</p>
+                <p>[19] P. Berg. "Abstracting the Future: The Search for Musical Constructs", Computer Music Journal, Vol. 20, No. 3, 1996, The MIT Press, pp.24-27.</p>
+                <p>[20] D. Sanfilippo & A. D. Scipio, "Environment-Mediated Coupling of Autonomous Sound-Generating Systems in Live Performance: An Overview of the Machine Milieu Project" in Proceedings SMC, Aspoo, Finland, 2017.</p>
+                <p>[21] R. Wooller, A. Brown, E. Miranda, J. Diederich & R.​ Berry, "A framework for comparison of process in algorithmic music systems." In David, Burraston &​ Ernest, Edmonds (Eds.) Generative Arts Practice, 5-7 December 2005,
+                  Sydney, Australia.</p>
+                <p>[22] P. Prekop & M. Burnett, "Activities, context and ubiquitous computing" in Computer Communications. Volume 26, Issue 11, 1 July 2003, pp.1168-1176.</p>
+                <p>[23] B. Barbot, "Creative Thinking in Music: Its Nature and Assessment Through Musical Exploratory Behaviors" in Psychology of Aesthetics Creativity and the Arts 6(3), 2012, pp.231-242</p>
+                <p>[24] P. Wegner & D. Goldin, "Computation Beyond Turing Machines" in Communications of the ACMVolume 46 Issue 4, 2003, pp.100-102</p>
+                <p>[25] M. Murtaugh "Interaction" in "Software Studies \ a Lexicon", The MIT Press, 2008, pp.143-149.</p>
+                <p>[26] H. Maturana, "Autopoiesis, Structural Coupling and Cognition: A history of these and other notions in the biology of cognition." Cybernetics & Human Knowing. 9, 2002, pp.5-34.</p>
+                <p>[27] H. Mariotti "Toward a Complex Concept of Sustainability" In: Nemiche M., Essaaidi M. (eds) Advances in Complex Societal, Environmental and Engineered Systems. Nonlinear Systems and Complexity, vol 18. Springer. 2017.</p>
+                <p>[28] E. Morin, "Restricted Complexity, General Complexity". Presented at the Colloquium "Intelligence de la complexité : épistémologie et pragmatique”, Cerisy-La-Salle, France, June 26th, 2005".</p>
+                <p>[29] S. Sanches & L. Ribas, "Procedurality And Performativity: Concepts And Practices" in "xCoAx 2016: Proceedings of the Fourth Conference on Computation, Communication, Aesthetics and X." http://2016.xcoax.org.</p>
+                <p>[30] M. Hamman "Priming Computer-Assisted Music Composition through Design of Human/Computer Interaction", http://www.wseas.us/e-library/conferences/jamaica2000/papers/45.pdf.</p>
+                <p>[31] E. Gamma, R. Helm, R. Johnson, and J. Vlissides, "Design Patterns: Elements of Reusable Object Oriented Software, Addison-Wesley", Reading (Mass.), 1995.</p>
+                <p>[32] W. Connolly, "The World of Becoming", Durham: Duke University Press, 2011.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="row">
+        <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+          <p>By <a href="http://www.bjarni-gunnarsson.net" target="_blank">Bjarni Gunnarsson</a>. On <a href="https://www.researchcatalogue.net">Research Cataloge</a>. At <a href="https://www.koncon.nl">The Royal Conservatoire</a> & <a href="http://www.sonology.org">Institute
+              of Sonology</a>.</p>
+        </div>
+      </footer>
+      <!--  COPY END  -->
+    </div>
+  </div>
+</body>
+
+</html>
