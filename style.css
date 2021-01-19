@@ -43,7 +43,11 @@ body {
 }
 
 html, * {
-     font-family: 'Oxygen', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+     /* font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+     font-size: 21px;
+     font-weight: 400px;
+     font-style: "normal"; */
 }
 
 header {
@@ -134,4 +138,10 @@ header {
   font-size: 18px;
   font-weight: 200;
   line-height: 1.8;
+}
+
+small {
+  font-size: 50%;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }

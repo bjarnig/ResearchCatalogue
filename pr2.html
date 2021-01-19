@@ -11,15 +11,15 @@
 <body>
   <div class="exposition">
     <div class="exposition-content">
-      
       <!-- COPY START -->
       <header class="sticky row">
         <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
           <a href="#" class="button">Introduction</a>
           <a href="#discussion" class="button">Discussion</a>
+          <a href="#correspondence" class="button">Correspondence</a>
+          <a href="#music" class="button">Music</a>
           <a href="#interface" class="button">Interface</a>
-          <a href="#prototypes" class="button">Prototypes</a>
-          <a href="#diagrams" class="button">Diagrams</a>
+          <!-- <a href="#diagrams" class="button">Diagrams</a> -->
           <a href="#usage" class="button">Usage</a>
           <a href="#download" class="button hidden-md hidden-sm">Download</a>
         </div>
@@ -38,790 +38,747 @@
             <br><br>
             <h1>Project 2</h1>
             <p><a href="http://koenigproject.nl" target="_blank">Gottfried Michael Koenig</a></p>
-            <p>This exposition forms part of the research project <i>'Project 2 - Implementation'</i> that concerns a
-              modern
-              implementation of a historically important computer-assisted composition program, Project 2 made at <a
-                href="https://www.koncon.nl">The Royal Conservatoire</a> and <a href="http://www.sonology.org">Institute
-                of Sonology</a> in The Hague in 2020.</p>
-            <p>
-              Gottfried Michael Koenig, born in 1926 in Magdeburg, Germany, was the first director and later chairman of
-              the Institute of Sonology at Utrecht University. During this period the Institute acquired a worldwide
+
+            <p>This exposition forms part of the research project “Project 2 - Implementation”, which concerns a modern
+              implementation of a historically important program for computer-assisted musical composition. This version
+              of Project 2 is made at <a href="https://www.koncon.nl">The Royal Conservatoire</a> and <a
+                href="http://www.sonology.org">Institute of Sonology</a> in 2020–21.</p>
+
+            <p>Gottfried Michael Koenig, born in 1926 in Magdeburg, Germany, was the first director and later chairman
+              of the Institute of Sonology at Utrecht University. During this period the Institute acquired a worldwide
               reputation, particularly for its annual Sonology course. Koenig also lectured extensively in the
               Netherlands and other countries and developed his computer programs Project 1, Project 2 and SSP, designed
               to formalise the composition of musical structure-variants.</p>
+
             <p>The computer program Project 2 (PR2) extended some of the ideas introduced with Project 1. The aim was to
               give the composer greater control over the composition process and implementation started in 1965.
               Although several attempts have been made to complete a version of the program, there is no working version
               that exists today. This research project concerns implementing Project 2, based on recent specifications
-              by
-              Koenig and with his invaluable assistance and input.</p>
+              by Koenig and with his invaluable assistance and input.</p>
+
+            <p>Project 2 was intended as a ‘composing program’ for instrumental music that creates ‘variants’ of a
+              compositional model based on input data provided by a composer.</p>
+
+            <p>The input data includes:</p>
+
+            <p>Instrument: lists of instrument names; each melody or percussion instrument is defined in terms of its
+              pitch, duration and dynamic range.</p>
             <p>
-            <p>Project 2, was intended as a “composing program” for instrumental music that creates “variants” of a
-              compositional model based on input data provided by a composer. The input data includes:
-            <ol>
-              <li>Instrument: lists of instrument names; each melody or percussion instrument is defined in terms of its
-                pitch, duration and dynamic range.</li>
-              <li>Rhythm: lists for entry delays, durations, rests and tempi.</li>
-              <li>Harmony: a choice of three harmonic principles: chord list, row, interval table.</li>
-              <li>Dynamics: list of dynamic indications.</li>
-              <li>Articulation: list of articulation modes.</li>
-            </ol>
+              <strong>Rhythm:</strong> lists for entry delays, durations, rests and tempi.
+              <br> <strong>Harmony:</strong> a choice of three harmonic principles: chord list, row, interval table.
+              <br> <strong>Dynamics:</strong> list of dynamic indications.
+              <br> <strong>Articulation:</strong> list of articulation modes.
             </p>
-            <p>The flow of data from the list into the score is effectuated in all the parameters, with the exception of
-              Harmony, by way of “tables”. A table contains “groups”, a group contains any number of elements from the
-              appropriate list. Table groups for an ensemble and group elements for the score are selected by various
-              methods: arbitrary selection (Alea), serial i.e. non-repetitive selection (Series), weighted selection
-              (Ratio), selection with group repetition (Group), directionally defined selection (Tendency) and the
-              composer’s own selection of individual elements (Sequence).</p>
+            <p>
+              The flow of data from the list into the score is effectuated in all the parameters, with the exception
+              of Harmony, by way of ‘tables’. A table contains ‘groups’, a group contains any number of elements from
+              the appropriate list. Table groups for an ensemble and group elements for the score are selected by
+              various methods: arbitrary selection (Alea), serial i.e. non-repetitive selection (Series), weighted
+              selection (Ratio), selection with group repetition (Group), directionally defined selection (Tendency) and
+              the composer’s own selection of individual elements (Sequence).
+            </p>
+
             <p>The parameters are hierarchically interdependent so as to avoid conflict between a subordinate and a
               superordinate parameter. Hierarchy is composer-defined or random. Data input is made by means of data
               screens on which a parameter can be described with regard to its data and data selection. The composition
               process is autonomous, i.e. without the intervention of the composer. The generated score tables can be
-              printed, saved or played back via MIDI.</p>
-            <p>
-              What follows are discussions with Koenig and Darien Brito (the developer of the current version).
-              Project 2 is then introduced in more detail including the screens it consist of and a video that
-              demonstrates how it works.
+              printed, saved or played back via MIDI.
             </p>
+
+            <p>What follows are discussions with Koenig and Darien Brito (the developer of the current version). Project
+              2 is then introduced in more detail including the screens it consists of and a video that demonstrates how
+              it works.
+            </p>
+
             <div id="discussion">
               <br><br>
               <hr />
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
-            <h1>Discussion</h1>
-
-            <p><em>The initial implementation of Project 2 (PR2) started in 1965. Although several attempts have been
-                made
-                to complete a working version of the program, no finished version exists today. What makes you want to
-                complete the program now and what has led you to work on it again?<em></p>
-
-            <p>Project 2 was available in several working versions; still in 1992 I have realised two compositions with
-              it (Concerti e Corali and 60 Blätter). Later, after purchasing a new computer and installing a different
-              operating system (until well into the 90s PR2 ran under DOS), the program was out of order, a new version
-              was not completed. I regret this, because I would like to continue using it myself; I also know of
-              colleagues who used to own the program and who probably have to do without it for the same or similar
-              reasons as I do. The new version I mentioned is based on plans with Rainer Wehinger; it should run under
-              Windows and use a graphical UI for input. These plans form the basis of today's project.</p>
-
-            <p>Project 2 has occupied me for 55 years. It was designed shortly after the completion of Project 1. Both
-              programs went back to discussions held in Darmstadt in 1951 and since 1954 the
-              work in the electronic studio of the WDR. I consider them to be part of my compositional production, they
-              are closely related to my work in music theory. It is my wish to make available
-              not only Project 1, which is available in a working SuperCollider version, but also the theoretical
-              content underlying Project 2 to interested parties in the form of an executable program. The reason for
-              the resumption was a common plan of Rainer Wehinger and me to produce new versions of PR1 and PR2 based on
+            <h1>Discussion
+              <small "style">With Gottfried Michael Koenig</small>
+            </h1>
+            </ol>
+            <p>The initial implementation of Project 2 started in 1965. Although several
+              attempts have been made to complete a working version of the program, no finished version exists today.
+              What makes you want to complete the program now and what has led you to work on it again?</p>
+            <p><strong>BG:</strong> Project 2 was available in several working versions; still in 1992 I
+              have realised two compositions with it (<em>Concerti e
+                Corali</em> and <em>60
+                Bl&auml;tter</em>). Later, after purchasing a new computer and
+              installing a different operating system (until well into the 90s PR2 ran under DOS), the program was out
+              of order, a new version was not completed. I regret this, because I would like to continue using it
+              myself; I also know of colleagues who used to own the program and who probably have to do without it for
+              the same or similar reasons as I do. The new version I mentioned is based on plans with Rainer Wehinger;
+              it should run under Windows and use a graphical UI for input. These plans form the basis of today's
+              project.</p>
+            <p><strong>GMK:</strong>Project 2 has occupied me for 55 years. It was designed shortly
+              after the completion of Project 1. Both programs went back to discussions held in Darmstadt in 1951 and
+              since 1954 the work in the electronic studio of the WDR. I consider them to be part of my compositional
+              production, they are closely related to my work in music theory. It is my wish to make available not
+              only Project 1, which is available in a working SuperCollider version, but also the theoretical content
+              underlying Project 2 to interested parties in the form of an executable program. The reason for the
+              resumption was a common plan of Rainer Wehinger and me to produce new versions of PR1 and PR2 based on
               the experiences which had be made with them in the meantime. This plan, drawn up in 1992, went back to a
-              summer seminar dedicated to the
-              programs, which was organised by Erhard Karkoschka and Rainer Wehinger in 1987 at the Hochschule für Musik
-              in Stuttgart. The execution of the plan was delayed many times, but culminated finally in the new version
-              of PR1 by Wehinger in 2015. It was also he who, after Luc Döbereiner had given up his work on a new PR2,
-              returned to work on PR2 until personal reasons prevented him from continuing work at the end of 2019.</p>
-
-            <p><em>Could you perhaps tell us about these ‘experiences’ you are referring to that led you to planning the
-                versions with Wehinger, but also about the different versions and development projects and if they have
-                in
-                any way influenced the functionality of the current implementation?</em></p>
-
-            <p>I did not mean any specific experiences that could be named. But there is the daily occupation,
-              the daily thinking, the composing with the program, which gives a certain flexibility. What was
-              once a problem becomes a solution, a looseness in dealing with theoretical principles and their
-              practical consequences. When the plan for a new (and definitive) version was drawn up, it was
-              based on the so-called Atari version, for which a complete manual from 1990 is available.
-              According to the note on the title page it was "commissioned and supported by the Sonology
-              Department at the Royal Conservatory, The Hague, and carried out by Ramon Gonzalez-Arroyo
-              and Gottfried Michael Koenig". If there has been any involvement with Project 2 at the Institute
+              summer seminar dedicated to the programs, which was organised by Erhard Karkoschka and Rainer Wehinger
+              in 1987 at the Hochschule f&uuml;r Musik in Stuttgart. The execution of the plan was delayed many times,
+              but culminated finally in the new version of PR1 by Wehinger in 2015. It was also he who, after Luc
+              D&ouml;bereiner had given up his work on a new PR2, returned to work on PR2 until personal reasons
+              prevented him from continuing work at the end of 2019.</p>
+            <p><strong>BG:</strong> Could you perhaps tell us about these &lsquo;experiences&rsquo; you
+              are referring to that led you to planning the versions with Wehinger, but also about the different
+              versions and development projects and if they have in any way influenced the functionality of the
+              current implementation?</p>
+            <p><strong>GMK:</strong> I did not mean any specific experiences that could be named. But
+              there is the daily occupation, the daily thinking, the composing with the program, which gives a certain
+              flexibility. What was once a problem becomes a solution, a looseness in dealing with theoretical
+              principles and their practicsl consequences. When the plan for a new (and definitive) version was drawn
+              up, it was based on the so-called Atari version, for which a complete manual from 1990 is available.
+              According to the note on the title page it was &ldquo;commissioned and supported by the Sonology
+              Department at the Royal Conservatory, The Hague, and carried out by Ram&oacute;n Gonz&aacute;lez-Arroyo
+              and Gottfried Michael Koenig&rdquo;. If there has been any involvement with Project 2 at the Institute
               since then, it can only have been based on the Atari version. The last attempt was that of Luc
-              Döbereiner, and when he left the Institute, Rainer Wehinger, who had just completed the
-              SuperCollider version of Project 1, agreed to create a SuperCollider version of Project 2 as well.
-              The plans I made for this were based on the original version from the 1960s as well as on
-              preparations for Project 3 (cf. Aesthetic Practice, vol. 3, pp. 315-331), which did not come to
+              D&ouml;bereiner, and when he graduated, Rainer Wehinger, who had just completed the SuperCollider
+              version of Project 1, agreed to create a SuperCollider version of Project 2 as well. The plans I made
+              for this were based on the original version from the 1960s as well as on preparations for Project 3 (cf.
+              Gottfried Michael Koenig, <em>&Auml;sthetische Praxis: Texte zur
+                Musik</em>, vol. 3, pp. 315-331), which did not come to
               fruition. So there is a jump between the Atari version and the current one.</p>
-
-
-            <p><em>It is quite unique to work on an implementation of a software system that was initially designed 55
-                years ago. For the current implementation, you have been very active in specifying the functionality,
-                verifying the calculations and working closely together with Darien Brito (the developer) in making sure
-                the implementation proceeds as expected. How do you see the differences in the development process now
-                compared to the first version or those that have been done since and do you feel there has been a need
-                to
-                adapt any of the original ideas to how things are done now?</em></p>
-
-            <p>The first version was written in ALGOL 60 and ran under DOS with a minimal memory by today's standards.
-              Therefore, the program had to be broken down into several parts that communicated with each other via a
-              hard disk. The input data was entered on a punched tape after it had been produced with a Teletype
-              teleprinter. The "input set" consisted of 63 questions, which had to be answered completely and in the
-              correct order. The standard format for a parameter such as Entry Delay consisted of List, Table, Group and
-              Order; there was no Change of Order. Variants of a basic structure could be formed, but there was no
-              decomposition of the structure into layers. The score data was output on a punched tape that could be
-              printed on the Teletype. A change in the usage of the programme resulted from the introduction of the
-              screen. There were also affordable desktops for private use. For these (and for the purpose of a general
-              revision of the program, which, for example, concerned data input using keyboard and mouse) Ramón
-              González-Arroyo wrote in 1990 an ATARI version. In 2014 Wehinger suggested to me to design a Windows
-              version with a graphical user interface of PR1 and PR2. I was already working on a version in Turbo
-              Pascal, which remained unfinished and was replaced by a version in Visual Basic in 2015. The work was hard
-              for me, so I was very happy when Wehinger, after Luc Döbereiner had left The Hague, was able to start
-              realising his proposal, until signs of aging began to hinder him as well. While thinking about a new –
-              and definitive – version, PR3 came to my mind.
-              Under this name I had been planning a new program since the late 1980s that would solve problems that had
-              remained unrecognized or neglected in PR1 and PR2. It is about the irreversible direction of time in music
-              and the interdependence of parameters. In PR1, apart from the dependence of the chord size on the index of
-              the Entry Delay list, there is no dependence defined, while the time direction remains completely
-              untreated. In PR2 the time direction can be taken into account with the Tendency function, while the
-              dependence of the parameters on each other is expressed in their Hierarchy, i.e. the order in which they
-              are decided upon. PR3 should primarily consider the time direction. For this purpose, the composer could
-              create a collection of "states" which, linked in many ways by "transition functions", would characterise
-              each form section by the transition between two states. The work of an international working group began
-              in 1989, but had to be abandoned in 1990 due to financing problems. [More about PR3 in: Ästhetische
-              Praxis, vol. 3, pp. 315-331, and vol. 4, pp.171-175]. Thinking of PR3 had two main effects on the redesign
-              of PR2. In order to enable more consideration of the direction of time, the Tendency functions have now
-              been made available to all parameters. The interdependence of the parameters is expressed in the Hierarchy
-              of parameters. It is based on the assumption that not all parameters are equally involved in the design of
-              a unit of form and that – because of the interdependence of the parameters – those most involved in the
-              typification must be designed as freely as possible; hence their preferred position at the top of the
-              hierarchy. These ideas, which have led to the planning of a new (definitive) version of PR2, are still
-              waiting to be realised, work, however, is currently underway. I see no reason at present to change or
-              extend this concept.</p>
-
-            <p><em>You mention both the operating system and programming languages that have been used in previous
-                implementations. The current implementation is done using the Python programming language with important
-                consequences regarding the data structures of the program but also for interface elements and usability.
-                What has been your experience of the current technical environment and do you think it has influenced
-                the
-                work and exchange of ideas in any way?</em></p>
-
-            <p>I cannot say much about Python. According to my experiences with Fortran, Algol, Turbo
-              Pascal and VisualBasic, Project 2 does not have very high requirements. The first part consists
-              of 10 questionnaires with text entries, checkboxes and radio buttons, the second part consists of data
-              comparison and data storage. I found this confirmed by the ease with which Rainer
-              Wehinger carried out his development work on three platforms. I am receiving updates from
-              Darien Brito every fortnight, which are not revealing any conveniences or difficulties in using
-              Python. When designing the graphical user interface I had the impression that it would have
-              been more comfortable with Visual Basic, but I can be wrong. I don't feel that I am in any way
-              influenced by the new circumstances; I am only concerned with making a concept accessible
-              that has occupied me for 55 years, albeit slightly modified by new insights.</p>
-
-            <p><em>For the new version of Project 2 an important goal has been to ensure that the program becomes
-                accessible to those interested. It will be possible to download the program but also to access the
-                source
-                code. How do you envision the scope of Project 2 in terms of the original ideas that you have refined
-                over
-                many years (and are very much part of your compositional thinking) versus having other people use it and
-                perhaps even extend it?</em></p>
-
-            <p> I can say little about how other users use it. PR2 has not become known to many composers due to the
-              relatively short time in which the program was functional and due to certain difficulties of its
-              transmission (in the first years there was no internet). PR1, on the other hand, was more easily and
-              continuously accessible, and it was also dealt with more intensively in lessons at the Institute for
-              Sonology. Therefore, to this day, I still receive questions about the password to download it from my
-              website. PR2 was more likely to attract the attention of composers, musicologists and university seminars
-              interested in theory, who were able to study the program without wanting to compose with it. I am
-              thinking, for example, of Otto Laske, who has dealt extensively with PR1 and PR2 in theory [see
-              "Composition Theory in Koenig's Project One and Project Two”, in: The Music Machine (ed. Curtis Roads, pp.
-              119-130)], but also practically through many works composed with PR1 and PR2 (a string quartet). I'm also
-              thinking of student seminars and practical exercises at the universities in Essen and Stuttgart in which I
-              was involved. Particular attention has been paid to the Tendency function by Barry Truax, who was inspired
-              by it for his POD programs, apparently having been inspiring a graphic designer I met in Vancouver who, as
-              he told me himself, based his computer works solely on it. I have discussed PR2 a lot with other
-              composers, especially when they were involved in the coding (like Ramón González-Arroyo or David
-              Theriault), and have been inspired to the details. They did not make any changes themselves, and that a
-              future user should interfere with the rather complex structure of the computer code seems unlikely to me.
+            <p><strong>BG:</strong> It is quite unique to work on an implementation of a software system
+              that was initially designed 55 years ago. For the current implementation, you have been very active in
+              specifying the functionality, verifying the calculations and working closely together with Darien Brito
+              (the developer) in making sure the implementation proceeds as expected. How do you see the differences
+              in the development process now compared to the first version or those that have been done since and do
+              you feel there has been a need to adapt any of the original ideas to how things are done now?</p>
+            <p><strong>GMK:</strong> The first version was written in ALGOL 60 and ran under DOS with a
+              minimal memory by today's standards. Therefore, the program had to be broken down into several parts
+              that communicated with each other via a hard disk. The input data was entered on a punched tape after it
+              had been produced with a Teletype teleprinter. The &lsquo;input set&rsquo; consisted of 63 questions,
+              which had to be answered completely and in the correct order. The standard format for a parameter such
+              as Entry Delay consisted of List, Table, Group and Order; there was no Change of Order. Variants of a
+              basic structure could be formed, but there was no decomposition of the structure into layers. The score
+              data was output on a punched tape that could be printed on the Teletype. A change in the usage of the
+              programme resulted from the introduction of the screen. There were also affordable desktops for private
+              use. For these (and for the purpose of a general revision of the program, which, for example, concerned
+              data input using keyboard and mouse) Ram&oacute;n Gonz&aacute;lez-Arroyo wrote in 1990 an ATARI version.
+              In 2014 Wehinger suggested to me to design a Windows version with a graphical user interface of PR1 and
+              PR2. I was already working on a version in Turbo Pascal, which remained unfinished and was replaced by a
+              version in Visual Basic in 2015. The work was hard for me, so I was very happy when Wehinger, after Luc
+              D&ouml;bereiner had left The Hague, was able to start realising his proposal, until signs of aging began
+              to hinder him as well. While thinking about a new &ndash; and definitive &ndash; version, PR3 came to my
+              mind. Under this name I had been planning a new program since the late 1980s that would solve problems
+              that had remained unrecognized or neglected in PR1 and PR2. It is about the irreversible direction of
+              time in music and the interdependence of parameters. In PR1, apart from the dependence of the chord size
+              on the index of the Entry Delay list, there is no dependence defined, while the time direction remains
+              completely untreated. In PR2 the time direction can be taken into account with the Tendency function,
+              while the dependence of the parameters on each other is expressed in their Hierarchy, i.e. the order in
+              which they are decided upon. PR3 should primarily consider the time direction. For this purpose, the
+              composer could create a collection of &lsquo;states&rsquo; which, linked in many ways by
+              &lsquo;transition functions&rsquo;, would characterise each form section by the transition between two
+              states. The work of an international working group began in 1989, but had to be abandoned in 1990 due to
+              financing problems. [More about PR3 in: Gottfried Michael Koenig, <em><span
+                  style="font-weight: 400;">&Auml;sthetische Praxis: Texte zur Musik</em><span
+                style="font-weight: 400;">, vol. 3, pp. 315-331, and vol. 4, pp.171-175]. Thinking of PR3 had two main
+                effects on the redesign of PR2. In order to enable more consideration of the direction of time, the
+                Tendency functions have now been made available to all parameters. The interdependence of the parameters
+                is expressed in the Hierarchy of parameters. It is based on the assumption that not all parameters are
+                equally involved in the design of a unit of form and that &ndash; because of the interdependence of the
+                parameters &ndash; those most involved in the typification must be designed as freely as possible; hence
+                their preferred position at the top of the hierarchy. These ideas, which have led to the planning of a
+                new (definitive) version of PR2, are still waiting to be realised, work, however, is currently underway.
+                I see no reason at present to change or extend this concept.</p>
+            <p><strong>BG:</strong> You mention both the operating system and programming languages that
+              have been used in previous implementations. The current implementation is done using the Python
+              programming language with important consequences regarding the data structures of the program but also
+              for interface elements and usability. What has been your experience of the current technical environment
+              and do you think it has influenced the work and exchange of ideas in any way?</p>
+            <p><strong>GMK:</strong> I cannot say much about Python. According to my experiences with
+              Fortran, Algol, Turbo Pascal and VisualBasic, Project 2 does not have very high requirements. The first
+              part consists of 10 questionnaires with text entries, checkboxes and radio buttons, the second part
+              consists of data comparison and data storage. I found this confirmed by the ease with which Rainer
+              Wehinger carried out his development work on three platforms. I am receiving updates from Darien Brito
+              every fortnight, which are not revealing any conveniences or difficulties in using Python. When
+              designing the graphical user interface I had the impression that it would have been more comfortable
+              with Visual Basic, but I can be wrong. I don't feel that I am in any way influenced by the new
+              circumstances; I am only concerned with making a concept accessible that has occupied me for 55 years,
+              albeit slightly modified by new insights.</p>
+            <p><strong>BG:</strong> For the new version of Project 2 an important goal has been to ensure
+              that the program becomes accessible to those interested. It will be possible to download the program but
+              also to access the source code. How do you envision the scope of Project 2 in terms of the original
+              ideas that you have refined over many years (and are very much part of your compositional thinking)
+              versus having other people use it and perhaps even extend it?</p>
+            <p><strong>GMK:</strong> I can say little about how other users use it. PR2 has not become
+              known to many composers due to the relatively short time in which the program was functional and due to
+              certain difficulties of its transmission (in the first years there was no internet). PR1, on the other
+              hand, was more easily and continuously accessible, and it was also dealt with more intensively in
+              lessons at the Institute for Sonology. Therefore, to this day, I still receive questions about the
+              password to download it from my website. PR2 was more likely to attract the attention of composers,
+              musicologists and university seminars interested in theory, who were able to study the program without
+              wanting to compose with it. I am thinking, for example, of Otto Laske, who has dealt extensively with
+              PR1 and PR2 in theory [see &ldquo;Composition Theory in Koenig's Project One and Project Two&rdquo;, in:
+              <em>The Music Machine</em>
+              (ed. Curtis Roads, pp. 119-130)], but also practically through many works composed with PR1 and PR2 (a
+              string quartet). I'm also thinking of student seminars and practical exercises at the universities in
+              Essen and Stuttgart in which I was involved. Particular attention has been paid to the Tendency function
+              by Barry Truax, who was inspired by it for his POD programs, apparently having been inspiring a graphic
+              designer I met in Vancouver who, as he told me himself, based his computer works solely on it. I have
+              discussed PR2 a lot with other composers, especially when they were involved in the coding (like
+              Ram&oacute;n Gonz&aacute;lez-Arroyo or David Theriault), and have been inspired to the details. They did
+              not make any changes themselves, and that a future user should interfere with the rather complex
+              structure of the computer code seems unlikely to me.
             </p>
-
-            <p><em>Clearly, many of the ideas have served or inspired others. I’m curious about the difference in
-                accessibility compared to PR2. Has the fact that PR2 was not as known or used by as many been on your
-                mind
-                and somehow motivated you to work on it now again?</em></p>
-
-            <p> PR2 has always been my problem child. In the Institute, PR1 was treated first, then, if there was
-              time left, PR2 as well. This meant that the program received less attention. It was also
-              handicapped by its size, because of the small memory it had to be divided into four independent programs,
-              which communicated with each other via the hard disk. Due to these circumstances,PR2 has always been my
-              problem child. In the Institute, PR1 was treated first, then, if there was time left, PR2 as well. This
-              meant that the program received less attention. It was also handicapped by its size, because of the small
-              memory it had to be divided into four independent programs, which communicated with each other via the
-              hard disk. Due to these circumstances, only a few composers were able to work with it. Porting it to new
-              hardware and translating it into other computer languages also hindered its development and popularity.
-              Reasons enough to welcome every opportunity to work out a complete version that is in line with the
-              experience gained so far. Only a few composers were able to work with it. Porting it to new hardware and
-              translating it into other computer languages also hindered its development and popularity. Reasons enough
-              to welcome every opportunity to work out a complete version that is in line with the experience gained so
-              far. </p>
-
-            <p><em>The current Project 2 implementation was founded on the base of interface sketches (or prototypes)
-                that you have done yourself and through which you communicated the main design of the program. However,
-                the original version used a very different approach to user input, where multiple questions had to be
-                answered before output was generated based on those answers. Can you explain how your ideas regarding
-                user
-                input have evolved and how the input interfaces in the current version came about? Also, even though the
-                new interface consists of many modern UI elements, there is a strong preference for the typing of all
-                input values. Why do you find that so important? </em></p>
-
-            <p> The ideas have not changed, only the technical possibilities of presenting them. The composer should be
-              able to tell the program his wishes, limited of course to those which the programme could fulfil. To save
-              the composer from having to leaf through the manual, and once the punched tape had been replaced by a text
-              monitor, the range of executable actions was shown on the screen in the form of menus in which one could
-              scroll through and finally answer questions, i.e. type in the data. The graphical interface allows the
-              user to work in a different way, more conveniently, versatilely and faster than calling up menus on a
-              text-oriented monitor. The memory of PR3, where the number of parameters used should be optional, gave me
-              the idea to allow the PR2 user to be free in the number of parameters, so that – maybe just for
-              experimenting or studying the program – he no longer needs to define all parameters. Typing as such is not
-              important. In all cases where the user has to decide among a fixed number of alternatives, he only needs
-              to click on a check button or radio button anyway. Data, on the other hand, which are unpredictable in
-              type and number, can best be entered by typing text. For fast and comfortable data entry, it is best to
-              keep both hands in the same position on the keyboard. I see the monitor screen as a kind of notepad on
-              which the user takes notes, deletes them, changes them, because this is the place where the composition
-              takes place.</p>
-            <p><em>Working with Project 2 involves different working phases. First, the input phase takes place where
-                all
-                entered data is extensively checked to ensure it is “correct” and that it can be used for the important
-                next step, the production phase. I believe the development process of the current program has also
-                reflected this, where the work on the production phase was not started until all of the tests had been
-                implemented and carefully executed. Could you explain why there is such an emphasis on the precise
-                validation of all the data and tests of the input phase? Was there a comparable focus on this aspect
-                also
-                in the other implementations that have been done?</em></p>
-
-            <p>Input phase and Production phase are two independent units. In the input phase, parameter values and
-              combining rules are typed in. In the production phase these data are used to compose one or more score
-              tables. Since the composition is largely chance-based, the production phase must be able to rely on the
-              data
-              being combined according to the rules without any problems. For this reason, the data must be checked
-              thoroughly. This is done automatically before entering the production phase. However, the user can have
-              his
-              data tested already in the input phase. Such tests have existed since the first program version in 1967.
-            </p>
-
-            <p><em>In some sense this does emphasize the importance of starting from clear and well-defined input
-                material.
-                I believe this attitude can be seen in many of your works including the electronic music. Could you tell
-                us how the process of creating musical form using PR2 takes place and how you understand the
-                relationship
-                between material and form as a result of using the program?</em></p>
-
-            <p> What is musical form anyway? Form is usually spoken of in terms of timeless experiences, form
-              usually refers to constant properties. Form is described by the classification of form types. This
-              gives the impression that the composer chooses a form type and then, as the speech goes, fills it with a
-              "content". At the latest since serial writing, form is something that is created through
-              formative work, an evolving content whose boundary to non-form gives an outline that, when
-              the content that has formed it is removed, remains as form. Form as a process of creation is
-              experienced by the composer as well as the listener. Seen in this light, form is not predetermined as
-              something to be realised with PR2, but the result of a process in which continuity and discontinuity
-              complement each other. The most important instrument for creating form in PR2 are therefore the sieve
-              functions, which define the individual events and manage their temporal concatenation.</p>
-
-            <p> <strong>Program</strong></p>
-
-
-            <p><em>Project 2 extends some of your previous work on Project 1 from 1964. It seems the aim was to give the
-                composer a greater control over the composition process. What was it in particular that brought you to
-                Project 2 initially and how does the program differ from Project 1? </em></p>
-
-            <p>It was not so much a question of more control over the production process, which was largely
-              characterised by random decisions, but rather of expanding the processes. However, it was desirable to
-              extend control by adding more control instruments. The reason for designing PR2, very soon after the
-              completion of PR1, was the insight that more could be said about the description of musical structures and
-              their interrelationships than PR1 allowed. After all, PR1 had only been a first attempt, an ambitious
-              exercise in a programming course. Although the application possibilities of PR1 were surprisingly large,
-              many wishes remained unfulfilled. The programming exercise was to become an "adult" system, not only as a
-              composition aid, but also as a tool for research in the field of composition theory. The differences
-              between PR1 and PR2 are easy to specify. There are more parameters, for the parameters larger ranges of
-              values and more design possibilities through refined selection procedures (sieve functions), creation of
-              variants. While PR1 could only generate a rough data grid, which had to be analysed and translated into a
-              playable score afterwards, in PR2 instruments should be able to be defined and dependencies of the
-              parameters on each other should already be considered by the program, which in PR1 was a subsequent task
-              of the composer. In short: the question of the programmability of music should be asked more sharply and
-              answered more meticulously.</p>
-
-            <p><em>Do you think that including the instrument definition and the restrictions that it implies on other
-                aspects of the generation process will influence the work realised with the program in a different way
-                compared to the output of PR1?</em></p>
-
-            <p>The difference is considerable. In PR1 there are only a few numbers (originally 9), which could
-              be interpreted (even ignored) later on in any way on the basis of the printed score tables. In PR2
-              (if this parameter is active at all) it can be the first parameter in the Hierarchy to determine
-              everything, as most other parameters are more or less restricted in their mobility by the
-              Instrument definitions. Conversely, if Instrument is only at the end of the Hierarchy, this
-              parameter must adapt to all previous ones, whereby its autonomy, the ability to develop
+            <p><strong>BG:</strong> Clearly, many of the ideas have served or inspired others. I&rsquo;m
+              curious about the difference in accessibility compared to PR2. Has the fact that PR2 was not as known or
+              used by as many been on your mind and somehow motivated you to work on it now again?</p>
+            <p><strong>GMK:</strong> PR2 has always been my problem child. In the Institute, PR1 was
+              treated first, then, if there was time left, PR2 as well. This meant that the program received less
+              attention. It was also handicapped by its size, because of the small memory it had to be divided into
+              four independent programs, which communicated with each other via the hard disk. Due to these
+              circumstances, only a few composers were able to work with it. Porting it to new hardware and
+              translating it into other computer languages also hindered its development and popularity. Reasons
+              enough to welcome every opportunity to work out a complete version that is in line with the experience
+              gained so far.&nbsp;</p>
+            <p><strong>BG:</strong> The current Project 2 implementation was founded on the base of
+              interface sketches (or prototypes) that you have done yourself and through which you communicated the
+              main design of the program. However, the original version used a very different approach to user input,
+              where multiple questions had to be answered before output was generated based on those answers. Can you
+              explain how your ideas regarding user input have evolved and how the input interfaces in the current
+              version came about? Also, even though the new interface consists of many modern UI elements, there is a
+              strong preference for the typing of all input values. Why do you find that so important?</p>
+            <p><strong>GMK:</strong> The ideas have not changed, only the technical possibilities of
+              presenting them. The composer should be able to tell the program his wishes, limited of course to those
+              which the program could fulfil. To save the composer from having to leaf through the manual, and once
+              the punched tape had been replaced by a text monitor, the range of executable actions was shown on the
+              screen in the form of menus in which one could scroll through and finally answer questions, i.e. type in
+              the data. The graphical interface allows the user to work in a different way, more conveniently,
+              versatilely and faster than calling up menus on a text-oriented monitor. The memory of PR3, where the
+              number of parameters used should be optional, gave me the idea to allow the PR2 user to be free in the
+              number of parameters, so that &ndash; maybe just for experimenting or studying the program &ndash; he no
+              longer needs to define all parameters. Typing as such is not important. In all cases where the user has
+              to decide among a fixed number of alternatives, he only needs to click on a check button or radio button
+              anyway. Data, on the other hand, which are unpredictable in type and number, can best be entered by
+              typing text. For fast and comfortable data entry, it is best to keep both hands in the same position on
+              the keyboard. I see the monitor screen as a kind of notepad on which the user takes notes, deletes them,
+              changes them, because this is the place where the composition takes place.</p>
+            <p><strong>BG:</strong> Working with Project 2 involves different working phases. First, the
+              input phase takes place where all entered data is extensively checked to ensure it is
+              &lsquo;correct&rsquo; and that it can be used for the important next step, the production phase. I
+              believe the development process of the current program has also reflected this, where the work on the
+              production phase was not started until all of the tests had been implemented and carefully executed.
+              Could you explain why there is such an emphasis on the precise validation of all the data and tests of
+              the input phase? Was there a comparable focus on this aspect also in the other implementations that have
+              been done?</p>
+            <p>Input phase and Production phase are two independent units. In the input
+              phase, parameter values and combining rules are typed in. In the production phase these data are used to
+              compose one or more score tables. Since the composition is largely chance-based, the production phase
+              must be able to rely on the data being combined according to the rules without any problems. For this
+              reason, the data must be checked thoroughly. This is done automatically before entering the production
+              phase. However, the user can have his data tested already in the input phase. Such tests have existed
+              since the first program version in 1967.</p>
+            <p><strong>BG:</strong> In some sense this does emphasize the importance of starting from
+              clear and well-defined input material. I believe this attitude can be seen in many of your works
+              including the electronic music. Could you tell us how the process of creating musical form using PR2
+              takes place and how you understand the relationship between material and form as a result of using the
+              program?</p>
+            <p><strong>GMK:</strong> What is musical form anyway? Form is usually spoken of in terms of
+              timeless experiences, form usually refers to constant properties. Form is described by the
+              classification of form types. This gives the impression that the composer chooses a form type and then,
+              as the speech goes, fills it with a &lsquo;content&rsquo;. At the latest since serial writing, form is
+              something that is created through formative work, an evolving content whose boundary to non-form gives
+              an outline that, when the content that has formed it is removed, remains as form. Form as a process of
+              creation is experienced by the composer as well as the listener. Seen in this light, form is not
+              predetermined as something to be realised with PR2, but the result of a process in which continuity and
+              discontinuity complement each other. The most important instrument for creating form in PR2 are
+              therefore the sieve functions, which define the individual events and manage their temporal
+              concatenation.</p>
+            <p><strong>Discussing the program with Gottfried Michael Koenig</strong></p>
+            <p><strong>BG:</strong> Project 2 extends some of your previous work on Project 1 from 1964.
+              It seems the aim was to give the composer a greater control over the composition process. What was it in
+              particular that brought you to Project 2 initially and how does the program differ from Project
+              1?</p>
+            <p><strong>GMK:</strong> It was not so much a question of more control over the production
+              process, which was largely characterised by random decisions, but rather of expanding the processes.
+              However, it was desirable to extend control by adding more control instruments. The reason for designing
+              PR2, very soon after the completion of PR1, was the insight that more could be said about the
+              description of musical structures and their interrelationships than PR1 allowed. After all, PR1 had only
+              been a first attempt, an ambitious exercise in a programming course. Although the application
+              possibilities of PR1 were surprisingly large, many wishes remained unfulfilled. The programming exercise
+              was to become an &lsquo;adult&rsquo; system, not only as a composition aid, but also as a tool for
+              research in the field of composition theory. The differences between PR1 and PR2 are easy to specify.
+              There are more parameters, for the parameters larger ranges of values and more design possibilities
+              through refined selection procedures (sieve functions), creation of variants. While PR1 could only
+              generate a rough data grid, which had to be analysed and translated into a playable score afterwards, in
+              PR2 instruments should be able to be defined and dependencies of the parameters on each other should
+              already be considered by the program, which in PR1 was a subsequent task of the composer. In short: the
+              question of the programmability of music should be asked more sharply and answered more
+              meticulously.</p>
+            <p><strong>BG:</strong> Do you think that including the instrument definition and the
+              restrictions that it implies on other aspects of the generation process will influence the work realised
+              with the program in a different way compared to the output of PR1?</p>
+            <p><strong>GMK:</strong> The difference is considerable. In PR1 there are only a small number
+              of instruments (originally 9), which could be interpreted (even ignored) later on in any way on the
+              basis of the printed score tables. In PR2 (if this parameter is active at all) it can be the first
+              parameter in the Hierarchy to determine everything, as most other parameters are more or less restricted
+              in their mobility by the Instrument definitions. Conversely, if Instrument is only at the end of the
+              Hierarchy, this parameter must adapt to all previous ones, whereby its autonomy, the ability to develop
               according to its own compositional principle, can be severely restricted. But even in PR2, the
-              instruments can be left undefined or only partially defined, so that the influence of the
-              Instrument parameter on the composition depends entirely on how the composer is using it.</p>
-
-            <p><em>Project 2 allows for realizing variants of a compositional model based on the same input data.
-                Structure variants are perhaps one of the core ideas behind the program and also your piece Übung für
-                Klavier (1969-70). Could you explain why these structural variants are important to you and what it is
-                that Project 2 offers for exploring them?</em></p>
-
-            <p>The creation of variants has always been a familiar process to me from electronic sound production. They
-              are created by transposition, filtering and reverberation of sound sequences recorded on tape. They are a
-              welcome derivation process because they change certain sound characteristics while others remain
-              unchanged. In this way, precisely defined relationships between sound passages can be established, which
-              is of great importance for the shaping of the form. It is worth noting the difference to a variation,
-              which is carefully "invented" by the composer, not mechanically derived. By the way, the mechanical (and
-              therefore extremely fast) creation of variations was already possible with PR1 by repeating the
-              composition process with a different starting number for the random generator. PR2 goes a step further in
-              this respect, e.g. by automatically changing the selection processes that are important for the design of
-              the form, and much more. Variant creation is not only useful for experimental purposes, but also for the
-              composer, who uses it to create and characterize form units. Variant creation is actually nothing more
-              than one of the many instruments for form development.</p>
-
-            <p><em>Can you tell us something about the use of variants in your own compositions and how they have
-                contributed to the creation of it?</em></p>
-
-            <p>A variant results when alternative decisions are made, different values are used, under the same
-              structural conditions. Although not unknown in classical form analysis, it is almost inevitable in the
-              mechanised generation of sound and structure. Every filtering or transposition of a sound sequence on tape
-              produces a variant. Variants are an ideal vehicle for the generation of form by changing the given without
-              losing the relation to the origin. This also applies to the time dimension by compressing (shortening) or
-              stretching (lengthening) the model. The formation of form in my electronic compositions such as
-              Klangfiguren II or Essay, also the series of Segments for changing instrumental groups is due to the work
-              with variants.
-              Due to the convenience and speed of their generation, variants are suitable for studying the
-              structural "environment" of a structural model. The composer can choose the most suitable
-              variant for his or her purposes from several variants or base the development of the form on
-              variants. </p>
-
-
-
-            <p><em>Parameters in Project 2 are calculated within a hierarchy and can have a specified relation where a
-                main parameter conditions a supporting one. For example, the instrument parameter has a strong influence
-                on others and how it is positioned seems an important choice for the user of the program. Why is it
-                necessary to establish such a parameter hierarchy when that was not part of Project 1? Furthermore, how
-                do
-                you think the interdependence between the parameters influences the music created with the program and
-                how
-                Project 2 is used?</em></p>
-
-            <p> You need them, because parameters are always in a hierarchy in that they are perceived by the listener
-              to varying degrees. Their hierarchy is deliberately used by composers to achieve certain effects (by means
-              of distinctive rhythm, harmony, volume, instrumentation, etc.). PR1 was, in the words of Otto Laske, a
-              "flash of inspiration", not the fruit of long reflection. The parameters were simply worked out in a fixed
-              order; whether the resulting context was also "playable" should be decided by the composer, who still had
-              to translate the score tables into a score. I do not believe that dependence as such produces any
-              particular effect. It is rather a question of the compositional intention and how to realise it. If the
-              effect of a certain sequence of events depends on the shaping of a certain parameter, it is better to
-              determine the relationship of the involved parameters to each other from the outset rather than wait for a
-              happy sequence of random values. Nothing is easier, by the way, than to change the Hierarchy in PR2, to
-              leave it completely or partially to chance, in order to experience the effect of the Hierarchy
-              experimentally. In order to work with PR2, one must know its possibilities and have a conception that can
-              be realised with the help of given algorithms. Familiarisation is made easier by experimenting with each
-              individual parameter – i.e. data and their treatment – and listen to the result immediately with MIDI. You
-              can also keep the result of a program run and add another parameter. To elaborate a concept, all
-              possibilities of layer and variant formation are available; each stage can be viewed on the screen,
-              listened to with MIDI, saved and reloaded.</p>
-
-            <p><em>You mention the parameters as always existing in a hierarchy that is perceivable by the listener to
-                varying degrees. How do you understand the relationship between a listener and the musical parameters
-                and
-                how does that relationship exist within PR2?</em></p>
-
-            <p>Parameters are in a hierarchy because you cannot select them at the same time. The fact that
-              they are decided on one after the other does not make them interdependent, but rather gives the user of
-              PR2 the opportunity to determine their interdependence. This is done on the one hand by the order in which
-              the data selection takes place, on the other hand by defining or leaving open the relationship. PR2 also
-              offers to leave the hierarchy to chance and to experimentally experience different effects in the way of
-              variants. When listening to music, the listener has an overall experience where he hardly consciously
-              distinguishes between different parameters. Nevertheless, he is susceptible to drastic effects, each
-              triggered by certain parameters: increases in speed or volume, strong contrasts and smooth transitions,
-              changes between different instrument groups, etc. Composers like to use this sensitivity of the listener
-              for their musical rhetoric.</p>
-
-            <p><em>In order to create higher-level structures with Project 2 an important idea is the one of selection.
-                A
-                composer selects values for parameters to use in a composition and applies selection principles to
-                choose
-                from those values how and when they occur in time. Out of the provided selection principles, only one
-                addresses directly any changes in time, the Tendency principle. This method performs a random selection
-                between boundaries that are changing in time and through these temporal changes, shapes and clear
-                movements can be produced. Could you share your thoughts on the special characteristics of the tendency
-                mask and how it is different from the other selection processes?</em></p>
-
-            <p> The peculiarity of the Tendency principle is that it does not know a cycle. The rule according to which
-              data are selected is only exhausted at the end of the Structure Duration. However, partial tendencies can
-              be defined so that a closer relationship to the database (Ensemble) is created. The Tendency principle
-              differs from other selection processes in that it enables different applications. Alea provides random
-              results, Ratio allows deviations from the repetition prohibition, Group generates a group-wise repetition
-              of data, with Sequence a data string can only be repeated, not changed. The Tendency principle is more
-              dependent than the others on the arrangement of the data in the Ensemble, because the Tendency mask only
-              makes accessible a section of the Ensemble and applies the Alea principle to the "visible" data.</p>
-
-            <p><em>How did you arrive at this set of selection processes and has it ever occurred to you to include more
-                processes in addition to these mentioned above?</em></p>
-
-            <p>The sieve functions more or less resulted by themselves. As an exercise in the computer course
-              at the University of Bonn I had already written programs for twelve-tone series and all-interval
-              series. Therefore Alea and Series were used as a basis for the data selection in PR1. For PR2 I
-              wanted to bridge the area between regularity and irregularity systematically by using
-              intermediary steps. This resulted in Ratio (for the relaxation of the repetition prohibition) and
-              Group (for a better structure of the form). Much is owed to the ongoing discussion with
-              Stockhausen, whose orchestral work at the time was not called "Gruppen" for nothing.
-              (Stockhausen had met the mathematician Andreas Speiser, who had written a "Theory of Groups of Finite
-              Order" in 1922, during a holiday stay in Switzerland. Speiser visited us in Cologne soon after). The
-              Tendency principle finally resulted from the difficulty of composing goal-oriented passages with the means
-              of serial thinking. At that time I had indeed toyed with the idea of developing more sieve functions, but
-              no opportunity, not even necessity, has ever arisen for this.</p>
-
-            <p><em>In your article from 1969, “Programmed Music – From the Composer's Viewpoint” you write about Project
-                2 and mention that in “Utrecht we have developed a comprehensive structure program [Project 2] which is
-                primarily intended for instrumental composition. It is supposed to help the composer empirically to
-                understand the concept of musical structure and to find an answer to the question: what in music is
-                programmable?” The goal of Project 2 seems to be somehow general here and this even suggests that the
-                program can respond to such questions in different ways. Do you think the above statement still holds
-                for
-                the current version and if so, what is it about the principles behind the program that allows for
-                exploring what “in music is programmable?”</em></p>
-
-            <p> The quote refers to a course in which mainly PR1 was discussed and made available to participants for
-              their own experiments. PR2 was also discussed in theory, but only independent versions of the selection
-              processes were available for practical exercises. This is what is meant by the term "comprehensive
-              structure". The question (what is programmable?) is answered in the quoted article: “Everything the
-              composer knows about music. ... What does the composer know about himself when he composes? ... He must be
-              aware of his habits and criteria. Not until he knows what he wants and what he will want and that
-              decisions he has to make now are rationally related to those that have to be made later can he start the
-              program.” The question would therefore be whether the program could serve the composer to reassure himself
-              of his own understanding of structure, and otherwise, when considering music analytically, to consider
-              above all its structure and what is programmable – i.e. describable – by it. Understood in this way, the
-              statement still applies to the present version. The merit of facilitating the study of the programmability
-              of musical structures is not due to Project 2 but to the computer technology. Computers make it possible
-              to realise even complex structural contexts in a matter of seconds, so that the composer can dare to wait
+              instruments can be left undefined or only partially defined, so that the influence of the Instrument
+              parameter on the composition depends entirely on how the composer is using it.</p>
+            <p><strong>BG:</strong> Project 2 allows for realizing variants of a compositional model
+              based on the same input data. Structure variants are perhaps one of the core ideas behind the program
+              and also your piece <em>&Uuml;bung f&uuml;r
+                Klavier</em> (1969&ndash;70). Could you explain why these
+              structural variants are important to you and what it is that Project 2 offers for exploring them?
+            </p>
+            <p><strong>GMK:</strong> The creation of variants has always been a familiar process to me
+              from electronic sound production. They are created by transposition, filtering and reverberation of
+              sound sequences recorded on tape. They are a welcome derivation process because they change certain
+              sound characteristics while others remain unchanged. In this way, precisely defined relationships
+              between sound passages can be established, which is of great importance for the shaping of the form. It
+              is worth noting the difference to a variation, which is carefully &lsquo;invented&rsquo; by the
+              composer, not mechanically derived. By the way, the mechanical (and therefore extremely fast) creation
+              of variations was already possible with PR1 by repeating the composition process with a different
+              starting number for the random generator. PR2 goes a step further in this respect, e.g. by automatically
+              changing the selection processes that are important for the design of the form, and much more. Variant
+              creation is not only useful for experimental purposes, but also for the composer, who uses it to create
+              and characterize form units. Variant creation is actually nothing more than one of the many instruments
+              for form development.</p>
+            <p><strong>BG:</strong> Can you tell us something about the use of variants in your own
+              compositions and how they have contributed to the creation of it?</p>
+            <p><strong>GMK:</strong> A variant results when alternative decisions are made, different
+              values are used, under the same structural conditions. Although not unknown in classical form analysis,
+              it is almost inevitable in the mechanised generation of sound and structure. Every filtering or
+              transposition of a sound sequence on tape produces a variant. Variants are an ideal vehicle for the
+              generation of form by changing the given without losing the relation to the origin. This also applies to
+              the time dimension by compressing (shortening) or stretching (lengthening) the model. The formation of
+              form in my electronic compositions such as <em>Klangfiguren
+                II</em> or <em><span style="font-weight: 400;">Essay</em>, also the series of
+              <em>Segments</em> for
+              changing instrumental groups is due to the work with variants. Due to the convenience and speed of their
+              generation, variants are suitable for studying the structural &lsquo;environment&rsquo; of a structural
+              model. The composer can choose the most suitable variant for his or her purposes from several variants
+              or base the development of the form on variants.
+            </p>
+            <p><strong>BG:</strong> Parameters in Project 2 are calculated within a hierarchy and can
+              have a specified relation where a main parameter conditions a supporting one. For example, the
+              instrument parameter has a strong influence on others and how it is positioned seems an important choice
+              for the user of the program. Why is it necessary to establish such a parameter hierarchy when that was
+              not part of Project 1? Furthermore, how do you think the interdependence between the parameters
+              influences the music created with the program and how Project 2 is used?</p>
+            <p><strong>GMK:</strong> You need them, because parameters are always in a hierarchy in that
+              they are perceived by the listener to varying degrees. Their hierarchy is deliberately used by composers
+              to achieve certain effects (by means of distinctive rhythm, harmony, volume, instrumentation, etc.). PR1
+              was, in the words of Otto Laske, a &ldquo;flash of inspiration&rdquo;, not the fruit of long reflection.
+              The parameters were simply worked out in a fixed order; whether the resulting context was also
+              &lsquo;playable&rsquo; should be decided by the composer, who still had to translate the score tables
+              into a score. I do not believe that dependence as such produces any particular effect. It is rather a
+              question of the compositional intention and how to realise it. If the effect of a certain sequence of
+              events depends on the shaping of a certain parameter, it is better to determine the relationship of the
+              involved parameters to each other from the outset rather than wait for a happy sequence of random
+              values. Nothing is easier, by the way, than to change the Hierarchy in PR2, to leave it completely or
+              partially to chance, in order to experience the effect of the Hierarchy experimentally. In order to work
+              with PR2, one must know its possibilities and have a conception that can be realised with the help of
+              given algorithms. Familiarisation is made easier by experimenting with each individual parameter &ndash;
+              i.e. data and their treatment &ndash; and listen to the result immediately with MIDI. You can also keep
+              the result of a program run and add another parameter. To elaborate a concept, all possibilities of
+              layer and variant formation are available; each stage can be viewed on the screen, listened to with
+              MIDI, saved and reloaded.</p>
+            <p><strong>BG:</strong> You mention the parameters as always existing in a hierarchy that is
+              perceivable by the listener to varying degrees. How do you understand the relationship between a
+              listener and the musical parameters and how does that relationship exist within PR2?</p>
+            <p><strong>GMK:</strong> Parameters are in a hierarchy because you cannot select them at the
+              same time. The fact that they are decided on one after the other does not make them interdependent, but
+              rather gives the user of PR2 the opportunity to determine their interdependence. This is done on the one
+              hand by the order in which the data selection takes place, on the other hand by defining or leaving open
+              the relationship. PR2 also offers to leave the hierarchy to chance and to experimentally experience
+              different effects in the way of variants. When listening to music, the listener has an overall
+              experience where he hardly consciously distinguishes between different parameters. Nevertheless, he is
+              susceptible to drastic effects, each triggered by certain parameters: increases in speed or volume,
+              strong contrasts and smooth transitions, changes between different instrument groups, etc. Composers
+              like to use this sensitivity of the listener for their musical rhetoric.</p>
+            <p><strong>BG:</strong> In order to create higher-level structures with Project 2 an
+              important idea is the one of selection. A composer selects values for parameters to use in a composition
+              and applies selection principles to choose from those values how and when they occur in time. Out of the
+              provided selection principles, only one addresses directly any changes in time, the Tendency principle.
+              This method performs a random selection between boundaries that are changing in time and through these
+              temporal changes, shapes and clear movements can be produced. Could you share your thoughts on the
+              special characteristics of the tendency mask and how it is different from the other selection
+              processes?</p>
+            <p><strong>GMK:</strong> The peculiarity of the Tendency principle is that it does not know a
+              cycle. The rule according to which data are selected is only exhausted at the end of the Structure
+              Duration. However, partial tendencies can be defined so that a closer relationship to the database
+              (Ensemble) is created. The Tendency principle differs from other selection processes in that it enables
+              different applications. Alea provides random results, Ratio allows deviations from the repetition
+              prohibition, Group generates a group-wise repetition of data, with Sequence a data string can only be
+              repeated, not changed. The Tendency principle is more dependent than the others on the arrangement of
+              the data in the Ensemble, because the Tendency mask only makes accessible a section of the Ensemble and
+              applies the Alea principle to the &lsquo;visible&rsquo; data.</p>
+            <p><strong>BG:</strong> How did you arrive at this set of selection processes and has it ever
+              occurred to you to include more processes in addition to these mentioned above?</p>
+            <p><strong>GMK:</strong> The sieve functions more or less resulted by themselves. As an
+              exercise in the computer course at the University of Bonn I had already written programs for twelve-tone
+              series and all-interval series. Therefore Alea and Series were used as a basis for the data selection in
+              PR1. For PR2 I wanted to bridge the area between regularity and irregularity systematically by using
+              intermediary steps. This resulted in Ratio (for the relaxation of the repetition prohibition) and Group
+              (for a better structure of the form). Much is owed to the ongoing discussion with Stockhausen, whose
+              orchestral work at the time was not called &ldquo;Gruppen&rdquo; for nothing. (Stockhausen had met the
+              mathematician Andreas Speiser, who had written a &ldquo;Theory of Groups of Finite Order&rdquo; in 1922,
+              during a holiday stay in Switzerland. Speiser visited us in
+              Cologne soon after). The Tendency principle finally resulted from the difficulty of composing
+              goal-oriented passages with the means of serial thinking. At that time I had indeed toyed with the idea
+              of developing more sieve functions, but no opportunity, not even necessity, has ever arisen for
+              this.</p>
+            <p><strong>BG:</strong> In your article from 1969, &ldquo;Programmed Music &ndash; From the
+              Composer's Viewpoint&rdquo; you write about Project 2 and mention that in &ldquo;Utrecht we have
+              developed a comprehensive structure program [Project 2] which is primarily intended for instrumental
+              composition. It is supposed to help the composer empirically to understand the concept of musical
+              structure and to find an answer to the question: what in music is programmable?&rdquo; The goal of
+              Project 2 seems to be somehow general here and this even suggests that the program can respond to such
+              questions in different ways. Do you think the above statement still holds for the current version and if
+              so, what is it about the principles behind the program that allows for exploring &ldquo;what in music is
+              programmable?&rdquo;</p>
+            <p><strong>GMK:</strong> The quote refers to a course in which mainly PR1 was discussed and
+              made available to participants for their own experiments. PR2 was also discussed in theory, but only
+              independent versions of the selection processes were available for practical exercises. This is what is
+              meant by the term &lsquo;comprehensive structure&rsquo;. The question (what is programmable?) is
+              answered in the quoted article: &ldquo;Everything the composer knows about music. ... What does the
+              composer know about himself when he composes? ... He must be aware of his habits and criteria. Not until
+              he knows what he wants and what he will want and that decisions he has to make now are rationally
+              related to those that have to be made later can he start the program.&rdquo; The question would
+              therefore be whether the program could serve the composer to reassure himself of his own understanding
+              of structure, and otherwise, when considering music analytically, to consider above all its structure
+              and what is programmable &ndash; i.e. describable &ndash; by it. Understood in this way, the statement
+              still applies to the present version. The merit of facilitating the study of the programmability of
+              musical structures is not due to Project 2 but to the computer technology. Computers make it possible to
+              realise even complex structural contexts in a matter of seconds, so that the composer can dare to wait
               for answers he would previously not have asked.</p>
-            <br>
+            <p><br /></p>
             <hr>
-            <br>
-            <p>
-            <h1> Darien Brito </h1>
-            </p>
+            <p><strong>With Darien Brito</strong></p>
+            <p><strong>BG:</strong> The initial work of Project 2 (PR2) started 55 years ago and there
+              have been several versions that have implemented the core ideas of the program. How have you experienced
+              working on them again now and the close collaboration with Gottfried Michael Koenig?</p>
+            <p><strong>DB:</strong>Project 2 embodies a particular take on rules for music that have had
+              important cultural and technological repercussions. This has been a wonderful opportunity to know and
+              understand on a deeper level the tradition of computer-assisted composition.</p>
+            <p><strong>BG:</strong> Koenig&rsquo;s technical and philosophical contributions to this
+              tradition have always been palpable, so It has been truly a privilege for me to engage first-hand with
+              notions that I heard echoed by my teachers, when I was doing my studies. In that sense, it feels like an
+              important responsibility, given that I feel like a mediator between Koenig and a language that keeps
+              evolving.</p>
+            <p><strong>DB:</strong> The task has not been easy at all because Project 2 is the fruit of a
+              very personal way of thinking. The clarity of its formulation and definitions leaves little space to
+              changes. Some decisions in the design are very idiosyncratic, so they do not always correspond to
+              current schemes of computer programming, or even how we are now used to interact with software.
+              Nonetheless, it was important to preserve all its features in the interest of having the implementation
+              as close as possible to the source.</p>
+            <p><strong>BG:</strong> The current implementation started with quite clear specifications
+              and even interface prototypes made by Koenig himself. How has the development process been in terms of
+              the definition but also verification of the core principles that you have implemented?</p>
+            <p><strong>DB:</strong> The given definitions take place over a number of distinct and clear
+              steps. The first and most complicated step is the validation of the input data. This process needs to
+              ensure that everything entered can produce a valid output and has no conflicting information, before any
+              calculation or processing takes place.</p>
+            <p>Verifying that this is done in the right way has been complicated for
+              various reasons, not in the least because of Koenig&rsquo;s decision to keep every input data-type as
+              text. This is one of such idiosyncratic features that I mentioned before.</p>
+            <p>To understand why that complicates things quite a bit let us imagine we
+              are trying to check if a certain number is in the valid range for a given input. Say that the acceptable
+              range for that input are numbers from 1 to 5. The user enters &lsquo;3&rsquo;. In order to perform this
+              check, that input must first be converted to a numeric value, since its inputted as a string data-type.
+              However, that input has an extra space after the three, inputted perhaps by accident, so the program
+              also has to strip down invalid characters before it can convert it to a number, and check if the entered
+              value is valid.</p>
+            <p>As we can see, such a simple check involved some labour already. This
+              increases drastically if the task becomes more complicated, or if the input possibilities are larger. If
+              the input would be numeric already to start with, as it is the case with every modern set of
+              user-interface tools, we could have saved us quite some work. However, the specification for Project 2
+              says that every input must be a string. That decision was kept because of how Koenig wishes to interact
+              with the program.</p>
+            <p>So, in order to achieve full verification of core principles we needed to
+              be quite thorough with every single input, since I could not rely on pre-made number boxes or matrices
+              to make all the checking for us. It became quite important to have a rather robust error-checking
+              mechanism. Koenig provided a set of checklists for that purpose, which I tested against test inputs for
+              every object and used in detail to write all the data validation algorithms. A great amount of time has
+              been devoted to this particular aspect, and we are still working on some details.</p>
+            <p><strong>BG:</strong> An important goal of this implementation project has been to make the
+              current version of Project 2 available and accessible to all those interested. What is that you have
+              done during development to ensure this and in what ways do you think the program and the source code
+              could be useful for others?</p>
+            <p><strong>DB:</strong>The most important decision on this regard was the choice of Python as a
+              programming language. Even though many different languages or environments could have been suitable, we
+              wanted to employ a platform that would be easily expandable, readable and accessible.</p>
+            <p>During the last ten years Python has gained a considerable traction in
+              every field, given its ease of use and native support as a scripting language in various host programs.
+              It is very easy to quickly set up Python in any machine and it is a very well supported language, which
+              warranties that programs written with it will be able to run for a long time.</p>
+            <p>All the code is stored in an online repository as open-source, so that
+              anyone can access it, download it and even modify it. It can also run as a cross-platform executable. I
+              believe that this is the best way to ensure that Koenig&rsquo;s ideas are alive and can be
+              employed.</p>
+            <p><strong>BG:</strong> Some of the specifications of PR2 does seem to be influenced by the
+              technical possibilities (and obstacles) that existed during the implementation of previous PR2 versions.
+              Has the implementation now of some of the core ideas been different from the specs due to the
+              differences they take in a modern programming language such as Python and if so, how has that
+              been?</p>
+            <p><strong>DB:</strong> Most definitely. I have observed (sometimes with astonishment) how
+              complicated certain operations had to be thought out. I assume this was due to memory limitations on
+              available computers at the time when seminal ideas of Project 2 were being developed.</p>
+            <p>This has been fascinating to learn since it reveals the ingenuity of the
+              composer/programmer in trying to solve a given task that we now take for granted. Such design had
+              naturally an impact on how the program was conceived and modelled, producing a logic structure that felt
+              rather unnatural to me, specially at the beginning, since I am only familiar with modern programming
+              paradigms.</p>
+            <p>To give an example: in Project 2, accessing lists in random order without
+              repeating values is an important operation. This can take place with some variants. In its simplest
+              form, it consists of having a collection of numbers and taking one element at a time without
+              repetitions, until there are no elements left. Once the task is completed the list regenerates itself.
+              In the original specification, this is achieved by flipping the indexes of the items in the list so that
+              one that has been used is moved down the stack while its index becomes inaccessible, by decreasing a
+              counter.</p>
+            <p>The logic to create this algorithm is rather convoluted for what we would
+              now consider to be a rather simple operation. This whole mechanism has been replaced by a single line of
+              code that shuffles the array instead, and creates a Python &lsquo;generator&rsquo;, which can be
+              accessed at will using lazy evaluation and regenerated when finished. There are various such adaptations
+              that have taken place in the program, naturally with the approval of Koenig.</p>
+            <p><strong>BG:</strong> PR2 consists of ideas that are very important to Koenig and that he
+              has refined over many years. Is there anything you could share about the process of working on the
+              implementation of such a personal program and what you, (also an active artist) have learned during the
+              process?</p>
+            <p><strong>DB:</strong> The structure of Project 2 favours the generation of scores via
+              carefully designed series of rules and steps in the algorithmic decision-making process, instead of
+              putting too much weight on the personal decisions of the composer. This resonates strongly with my own
+              artistic activity, which is based on algorithmic systems and generative processes for the creation of
+              audiovisuals. The chance of knowing and working so down to the details on Koenig&rsquo;s system has been
+              an all-inspiring experience since it has forced me to re-evaluate my own notions and to re-live moments
+              that perhaps Koenig went through, in trying to put his ideas into practice.</p>
+            <p>On a practical level, perhaps one of the most important lessons I got
+              from it is the power of combinatorics. I have some experience creating systems with machine learning or
+              with biologically-inspired algorithms. However, it has been remarkable and surprising to me to see how a
+              carefully crafted set of combinations and permutations based on a succinct strict set of numbers can
+              produce already so much useful richness, without the need of much more complexity.</p>
+            <p>I am overall very moved by the passion that Koenig displays whenever we
+              are working together. I believe it is a rare quality to possess, even after so many years of
+              creation.<br /></p>
+             
+              <div id="correspondence">
+                <br><br>
+                <hr />
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
 
-            <p><em>The initial work of Project 2 (PR2) started 55 years ago and there have been several versions that
-                have
-                implemented the core ideas of the program. How have you experienced working on them again now and the
-                close collaboration with Gottfried Michael Koenig?</em></p>
-
-            <p>Project 2 embodies a particular take on rules for music that have had important cultural and
-              technological repercussions. This has been a wonderful opportunity to know and understand on a deeper
-              level the tradition of computer-assisted composition.</p>
-
-            <p>Koenig’s technical and philosophical contributions to this tradition have always been palpable, so It has
-              been truly a privilege for me to engage first-hand with notions that I heard echoed by my teachers, when I
-              was doing my studies. In that sense, it feels like an important responsibility, given that I feel like a
-              mediator between Koenig and a language that keeps evolving.</p>
-
-            <p>The task has not been easy at all because Project 2 is the fruit of a very personal way of thinking. The
-              clarity of its formulation and definitions leaves little space to changes. Some decisions in the design
-              are very idiosyncratic, so they do not always correspond to current schemes of computer programming, or
-              even how we are now used to interact with software. Nonetheless, it was important to preserve all its
-              features in the interest of having the implementation as close as possible to the source. </p>
-
-            <p><em>The current implementation started with quite clear specifications and even interface prototypes made
-                by Koenig himself. How has the development process been in terms of the definition but also verification
-                of the core principles that you have implemented?</em></p>
-
-            <p>The given definitions take place over a number of distinct and clear steps. The first and most
-              complicated step is the validation of the input data. This process needs to ensure that everything entered
-              can produce a valid output and has no conflicting information, before any calculation or processing takes
-              place. </p>
-
-            <p>Verifying that this is done in the right way has been complicated for various reasons, not in the least
-              because of Koenig’s decision to keep every input data-type as text. This is one of such idiosyncratic
-              features that I mentioned before.</p>
-
-            <p>To understand why that complicates things quite a bit let us imagine we are trying to check if a certain
-              number is in the valid range for a given input. Say that the acceptable range for that input are numbers
-              from 1 to 5. The user enters “3 ”. In order to perform this check, that input must first be converted to a
-              numeric value, since its inputted as a string data-type. However, that input has an extra space after the
-              three, inputted perhaps by accident, so the program also has to strip down invalid characters before it
-              can convert it to a number, and check if the entered value is valid.</p>
-
-            <p>As we can see, such a simple check involved some labour already. This increases drastically if the task
-              becomes more complicated, or if the input possibilities are larger. If the input would be numeric already
-              to start with, as it is the case with every modern set of user-interface tools, we could have saved us
-              quite some work. However, the specification for Project 2 says that every input must be a string. That
-              decision was kept because of how Koenig wishes to interact with the program. </p>
-
-            <p>So, in order to achieve full verification of core principles we needed to be quite thorough with every
-              single input, since I could not rely on pre-made number boxes or matrices to make all the checking for us.
-              It became quite important to have a rather robust error-checking mechanism. Koenig provided a set of
-              checklists for that purpose, which I tested against test inputs for every object and used in detail to
-              write all the data validation algorithms. A great amount of time has been devoted to this particular
-              aspect, and we are still working on some details.</p>
-
-            <p><em>An important goal of this implementation project has been to make the current version of Project 2
-                available and accessible to all those interested. What is that you have done during development to
-                ensure
-                this and in what ways do you think the program and the source code could be useful for others?</em></p>
-
-            <p>The most important decision on this regard was the choice of Python as a programming language. Even
-              though many different languages or environments could have been suitable, we wanted to employ a platform
-              that would be easily expandable, readable and accesible. </p>
-
-            <p>During the last ten years Python has gained a considerable traction in every field, given its ease of use
-              and native support as a scripting language in various host programs. It is very easy to quickly set up
-              Python in any machine and it is a very well supported language, which warranties that programs written
-              with it will be able to run for a long time.</p>
-
-            <p>All the code is stored in an online repository as open-source, so that anyone can access it, download it
-              and even modify it. It can also run as a cross-platform executable. I believe that this is the best way to
-              ensure that Koenig’s ideas are alive and can be employed.</p>
-
-            <p><em>Some of the specifications of PR2 does seem to be influenced by the technical possibilities (and
-                obstacles) that existed during the implementation of previous PR2 versions. Has the implementation now
-                of
-                some of the core ideas been different from the specs due to the differences they take in a modern
-                programming language such as Python and if so, how has that been?</em></p>
-
-            <p>Most definitely. I have observed (sometimes with astonishment) how complicated certain operations had to
-              be thought out. I assume this was due to memory limitations on available computers at the time when
-              seminal ideas of Project 2 were being developed.</p>
-
-            <p>This has been fascinating to learn since it reveals the ingenuity of the composer/programmer in trying to
-              solve a given task that we now take for granted. Such design had naturally an impact on how the program
-              was conceived and modeled, producing a logic structure that felt rather unnatural to me, specially at the
-              beginning, since I am only familiar with modern programming paradigms.</p>
-
-            <p>To give an example: in Project 2, accessing lists in random order without repeating values is an
-              important operation. This can take place with some variants. In its simplest form, it consists of having a
-              collection of numbers and taking one element at a time without repetitions, until there are no elements
-              left. Once the task is completed the list regenerates itself. In the original specification, this is
-              achieved by flipping the indexes of the items in the list so that one that has been used is moved down the
-              stack while its index becomes inaccessible, by decreasing a counter. </p>
-
-            <p>The logic to create this algorithm is rather convoluted for what we would now consider to be a rather
-              simple operation. This whole mechanism has been replaced by a single line of code that shuffles the array
-              instead, and creates a Python “generator”, which can be accessed at will using lazy evaluation and
-              regenerated when finished. There are various such adaptations that have taken place in the program,
-              naturally with the approval of Koenig.</p>
-
-            <p><em>PR2 consists of ideas that are very important to Koenig and that he has refined over many years. Is
-                there
-                anything you could share about the process of working on the implementation of such a personal program
-                and
-                what you, (also an active artist) have learned during the process?</em></p>
-
-            <p>The structure of Project 2 favors the generation of scores via carefully designed series of rules and
-              steps in the algorithmic decision-making process, instead of putting too much weight on the personal
-              decisions of the composer. This resonates strongly with my own artistic activity, which is based on
-              algorithmic systems and generative processes for the creation of audiovisuals. The chance of knowing and
-              working so down to the details on Koenig’s system has been an all-inspiring experience since it has forced
-              me to re-evaluate my own notions and to re-live moments that perhaps Koenig went through, in trying to put
-              his ideas into practice.</p>
-
-            <p>On a practical level, perhaps one of the most important lessons I got from it is the power of
-              combinatorics. I have some experience creating systems with machine learning or with biologically-inspired
-              algorithms. However, it has been remarkable and surprising to me to see how a carefully crafted set of
-              combinations and permutations based on a succinct strict set of numbers can produce already so much useful
-              richness, without the need of much more complexity.</p>
-
-            <p>I am overall very moved by the passion that Koenig displays whenever we are working together. I believe
-              is a rare quality to possess, even after so many years of creation.</p>
-
-            <br>
-            <hr>
-            <br>
-            <p>
-            <h1> Correspondence </h1>
-            </p>
-            <p><small> Compiled by Koenig regarding the development of the program throughout the years </small> </p>
-
-
-            <p>
-              The plans for [“Project 1" and] "Project 2" date back to the Cologne period. The two projects are
-              fundamentally different. The first one is designed to be "vertical" in a sense, in that several
-              individually calculated "layers" overlap in the result. The second, in contrast, is "horizontal" in
-              that only states that are already complex in themselves follow one another. In other words: in the
-              first project, each musical date must take into account what is happening at the same time, in the
-              second, what happened before. One can call simultaneity the musical "space", since it is, so to
-              speak, perpendicular to time; the pure sequence, however, is spaceless. Physically, music is
-              indeed spaceless in time, while the listener (and before that, the composer) breaks down the
-              sensory perception into qualitatively different dimensions. This leads to the question: how can
-              the qualitatively perceived space of music be transformed into the time sequence of physical
-              states? This question arose together with Stockhausen's article in the third "Reihe", not yet so
-              definitively formulated, but still in essence. But the question only becomes acute, it seems to
-              me, when the musical event is "programmed", i.e. brought into a general form. A separate
-              department is to be set up within our studio at the university for preliminary acoustic and
-              audiopsychological investigations; investigations on the side of perception are to provide
-              prerequisites for the programming of electronic sounds, investigations on the side of aesthetic
-              perception are to provide prerequisites for the programming of composition-theoretical
-              statements.
-              <br>
-              [Letter to Ulricht Dibelius, 30.5.1965]
-            </p>
-            <p>
-              In addition, I am working on a PROJECT 2, which has been fixed in its conception for a long
-              time and is now being fixed in detail. I have called the difference between the two projects
-              "vertical" and "horizontal" conception. By "vertical conception" I understand the composition
-              of the musical course of events from superimposed "layers" ("voices" in the instrumental area,
-              individual tapes in electronic music, which are synchronised with each other, "parameters" in
-              the serial composition technique, which are individually fixed and then also "superimposed").
-              The vertical conception thus describes, in a sense, a musical "space" that is perpendicular to
-              musical time, that which is qualitatively different at any given moment. In terms of production,
-              this space is realised in instrumental music through the use of several musicians, in electronic
-              music through tapes that run simultaneously, in terms of composition through the idea of
-              parameters, and in the listening process it is the condition sine qua non of the musical
-              experience. Nevertheless, the oscillation curve of the sound through which the musical
-              impression is transmitted can be described as an amplitude curve in time in which the
-              components of the musical "space" disappear. In other words, the musical "space" (the
-              simultaneity of different qualities of perception) can be transformed into a mere sequence of
-              different amplitudes; only the musical ear reassembles the auditory image from this. This is
-              what is meant by "horizontal conception". It seems to make sense, for the purpose of producing
-              electronic sounds with the help of a computer, to distinguish between these two approaches, and
-              with some certainty the "horizontal" one is more appropriate to the computer. Beyond the pure
-              programming technique, however, the difference described can also become significant for the
-              formal constitution of music (instrumental as well as electronic). The strength (and at the same
-              time the weakness) of the serial composition technique was the representation of parameters,
-              and it can be said that - in most works of this phase - the simultaneous presence of different
-              parameters was more important than the actual sequence of different musical states, no matter
-              how they were constituted individually (and serially). Significant progress was achieved with
-              group composition. And when I organise my two projects today vertically on the one hand and
-              horizontally on the other, it is actually a recapitulation of the music history of the last 15 years.
-              I think, however, that there must be clarity about these compositional processes before one can
-              go any further, namely to draw the consequences.
-              The two projects also reflect the relationship between determined and indeterminate
-              structures - i.e. the inclusion of chance. In both projects there are on the one hand relationships
-              determined by the composer, on the other hand fields of free decision, which nobody can make
-              as unbiased as a computer. I have come to the conviction, which I think can be proven
-              experimentally, that serial determination is merely a special case of random decision, a random
-              decision of course within fixed limits.
-              <br>
-              [Letter to Ulrich Dibelius, 19. 6. 1965]
-            </p>
-            <p>
-              PROJECT 2 is now in its final stages. Next week I can start writing the whole program on
-              punched tape and testing it.
-              <br>
-              [Diary from 28. 7. 66]
-            </p>
-            <p>
-              PROJECT 2 practically finished.
-              <br> [Diary of 29. 7. 1966]
-            </p>
-            <p>
-              Last hand on PROJECT 2. Hope to get time at the flexowriter on Wednesday and Thursday.
-              <br> [Diary of 1. 8. 1966]
-            </p>
-            <p>
-              The punched tapes of PROJEKT 2 will being finished before the holidays. On 1 September,
-              Greta Vermeulen started working as a half-day assistant (the other half occupies Shinohara) to
-              take care of all program matters and contact with the computer centre.In the meantime, she
-              could hardly achieve anything (except some Flexowriter work), because the Electrologica X8 is
-              again not running. Yesterday PROJECTS 1 and 2 were shipped to Amsterdam. Most likely
-              PROJECT 2 is too long (for a core memory with 16000 words). I will try to squeeze the arrays
-              together. I also have hope to find a bigger computer. An employee of the local IBM branch,
-              from whom Tempelaars got manuals about other machine languages, showed great interest, he
-              will visit us soon.
-              <br> [Diary from 1. 10. 1966]
-            </p>
-            <p>
-              3
-              In the next course, starting in October, I will hold a special course entitled "Computer
-              Composition". The course will take place three times a month and will consist of a series of
-              practical exercises. For this purpose, PROJECT 2 will be taken apart into its individual parts, so
-              that the participants can program and try out each piece for themselves. At the end of the course
-              there will be the opportunity to use the complete version of PROJECT 2.
-              <br> [Letter to Makoto Shinohara, 18. 3. 1967]
-            </p>
-            <p>
-              In the special course COMPUTER COMPOSITION we had one hour per week in the last
-              course. Small sub-programs (from PROJECT 2) were discussed; the participants could run these
-              programs on the computer. We will do the same in the following course; in the continuation
-              course we will focus more on the computer itself and the ALGOL language. The participants
-              should write simple programs themselves.
-              <br> [Letter to István Anhalt, 31. 5. 1968]
-            </p>
-            <p>
-              The composition programs ("Project 1" and "Project 2") are intended as preparatory work for
-              sound production, although they naturally have their own independent significance for
-              composition and composition theory.
-              <br> [Letter to Nicole Lacharte, 1. 7. 1968]
-            </p>
-            <p>
-              The new large computer program (Project 2) is finally running and I have started to work on
-              several projects with it, including a number of piano pieces (1 piano). I assume that I will be
-              able to finish at least one piece, maybe two, in time (for the Pro Musica Nova concert).
-              <br> [Letter to Hans Otte, 16. 6. 1969]
-            </p>
-            <p>
-              My computer programme (PROJECT 2) is finally running: I am now in the process of making
-              a first composition (for piano) with it. Performance 1970 in Bremen (musica nova).
-              <br> [Letter to Zbigniev Penherski, 17. 12. 1969]
-            </p>
-            <p>
-              In Bremen, Claude Helffer will perform a new piano piece composed with the new program,
-              PROJECT 2. I hope to publish the score of it - together with an analytical appendix - soon.
-              <br> [Letter to Eduard Herzog, 13. 5. 1970]
-            </p>
-            <p>
-              4
-              Plans for the new version of PROJECT2 were put on hold due to other events, and the computer
-              sound program did not work as I wanted it to - again a question of time. In the meantime, Paul
-              Berg has taken on the sound programme and has achieved his first small successes.
-              Freed from this, I turned back to PROJECT2 and at the same time submitted a project for the
-              construction of a sound generator. This is an old idea of mine (and perhaps this is what you are
-              aiming at with your remark about a "real-time version") ... in order to have data points available
-              for each of the operations used by the composer). The project has been provisionally accepted;
-              Scherpenisse is working on a simplified version of Kaegi's VOSIM generators. – The input data
-              points are in any case fixed in the user's data set, which can be interactively modified in the new
-              version of the program (PROJECT 2b) and also saved on DECtape. By the way, I write the new
-              program in FORTRAN IV, so that it can also run on other computers without much effort.
-              <br> [Letter to Otto Laske, 3. 3. 1976]
-            </p>
-            <p>
-              I am now working on a new version of PROJECT 2, which will run on our own (private)
-              computer. This allows me to work much faster than with the old version in the computer centre
-              and gives me the opportunity to do extensive experiments and also to compose some pieces
-              again. In the institute, even special generators are being built with which the structures that the
-              computer has composed can be listened to immediately.
-              <br> [Letter to Elfriede Koenig, 20. 3. 1976]
-            </p>
-            <p>
-              I hope that I will soon be able to work on the new version of my "Project 2", not only for my
-              own enjoyment, but also and above all for the students' sake.
-              <br> [Letter to Elfriede Koenig, 30. 10. 1977]
-            </p>
-            <p>
-              As I heard (from someone involved), PROJECT 2 is almost finished, so you can expect to see
-              a copy of the FORTRAN version soon.
-              <br> [Brief an Tamas Ungvary, 2. 5. 1980]
-            </p>
-            <p>
-              "Our" computer has become an integral part of our household. (...) I use it first of all to produce
-              a new manual for my composing programme "Project 2", which after many years of work has
-              now received a probably final version.
-              <br> [Letter to Elfriede Koenig, 4. 2. 1984]
-            </p>
-            <p>
-              At this moment, "Project 2" is unfortunately not yet available. Ramon has almost completed the
-              redesign (i.e. the last Sonology version without Midi connection for Atari), but has gone on a
-              search for bugs again (not without finding some) and would like to finish it first. This will be
-              the case (according to his estimate) in January or February. After that we can send you the
-              complete source text - as hardcopy or on 3.5" floppy. If the implementation of "Project 1" on
-              5
-              Macintosh is so smooth that you think you can extend it to "Project 2", this will certainly
-              happen. A Midi connection is also considered of course, but we would like to have a better
-              version of the "Midas" program. – It is possible that we (Ramon and I) will produce a new,
-              improved and extended version of "Project 2"; whether this will happen depends, among other
-              things, on funding from the Hague Conservatory. This would render the current version
-              obsolete.
-              <br> [Letter to Otto Laske, 13. 11. 1988]
-            </p>
-
-
-            <div id="interface">
+            <h1>Correspondence
+            </h1>
+            <p><i>Compiled by Koenig and regarding the development of the program
+              throughout the years</i></p>
+            <p>The plans for [&ldquo;Project 1&rdquo; and] &ldquo;Project 2&rdquo; date
+              back to the Cologne period. The two projects are fundamentally different. The first one is designed to
+              be &lsquo;vertical&rsquo; in a sense, in that several individually calculated &lsquo;layers&rsquo;
+              overlap in the result. The second, in contrast, is &lsquo;horizontal&rsquo; in that only states that are
+              already complex in themselves follow one another. In other words: in the first project, each musical
+              date must take into account what is happening at the same time, in the second, what happened before. One
+              can call simultaneity the musical &lsquo;space&rsquo;, since it is, so to speak, perpendicular to time;
+              the pure sequence, however, is spaceless. Physically, music is indeed spaceless in time, while the
+              listener (and before that, the composer) breaks down the sensory perception into qualitatively different
+              dimensions. This leads to the question: how can the qualitatively perceived space of music be
+              transformed into the time sequence of physical states? This question arose together with Stockhausen's
+              article in the third &ldquo;Reihe&rdquo;, not yet so definitively formulated, but still in essence. But
+              the question only becomes acute, it seems to me, when the musical event is &lsquo;programmed&rsquo;,
+              i.e. brought into a general form. A separate department is to be set up within our studio at the
+              university for preliminary acoustic and audiopsychological investigations; investigations on the side of
+              perception are to provide prerequisites for the programming of electronic sounds, investigations on the
+              side of aesthetic perception are to provide prerequisites for the programming of composition-theoretical
+              statements.</p>
+            <p>[Letter to Ulricht Dibelius, 30.5.1965]</p>
+            <p>In addition, I am working on a PROJECT 2, which has been fixed in its
+              conception for a long time and is now being fixed in detail. I have called the difference between the
+              two projects &lsquo;vertical&rsquo; and &lsquo;horizontal&rsquo; conception. By &lsquo;vertical
+              conception&rsquo; I understand the composition of the musical course of events from superimposed
+              &lsquo;layers&rsquo; (&lsquo;voices&rsquo; in the instrumental area, individual tapes in electronic
+              music, which are synchronised with each other, &lsquo;parameters&rsquo; in the serial composition
+              technique, which are individually fixed and then also &lsquo;superimposed&rsquo;). The vertical
+              conception thus describes, in a sense, a musical &lsquo;space&rsquo; that is perpendicular to musical
+              time, that which is qualitatively different at any given moment. In terms of production, this space is
+              realised in instrumental music through the use of several musicians, in electronic music through tapes
+              that run simultaneously, in terms of composition through the idea of parameters, and in the listening
+              process it is the condition <em>sine qua non</em><span style="font-weight: 400;"> of the musical
+                experience. Nevertheless, the oscillation curve of the sound
+                through which the musical impression is transmitted can be described as an amplitude curve in time in
+                which the components of the musical &lsquo;space&rsquo; disappear. In other words, the musical
+                &lsquo;space&rsquo; (the simultaneity of different qualities of perception) can be transformed into a
+                mere sequence of different amplitudes; only the musical ear reassembles the auditory image from this.
+                This is what is meant by &lsquo;horizontal conception&rsquo;. It seems to make sense, for the purpose of
+                producing electronic sounds with the help of a computer, to distinguish between these two approaches,
+                and with some certainty the &lsquo;horizontal&rsquo; one is more appropriate to the computer. Beyond the
+                pure programming technique, however, the difference described can also become significant for the formal
+                constitution of music (instrumental as well as electronic). The strength (and at the same time the
+                weakness) of the serial composition technique was the representation of parameters, and it can be said
+                that - in most works of this phase - the simultaneous presence of different parameters was more
+                important than the actual sequence of different musical states, no matter how they were constituted
+                individually (and serially). Significant progress was achieved with group composition. And when I
+                organise my two projects today vertically on the one hand and horizontally on the other, it is actually
+                a recapitulation of the music history of the last 15 years. I think, however, that there must be clarity
+                about these compositional processes before one can go any further, namely to draw the consequences. The
+                two projects also reflect the relationship between determined and indeterminate structures - i.e. the
+                inclusion of chance. In both projects there are on the one hand relationships determined by the
+                composer, on the other hand fields of free decision, which nobody can make as unbiased as a computer. I
+                have come to the conviction, which I think can be proven experimentally, that serial determination is
+                merely a special case of random decision, a random decision of course within fixed limits.</p>
+            <p>[Letter to Ulrich Dibelius, 19. 6. 1965]</p>
+            <p>PROJECT 2 is now in its final stages. Next week I can start writing the
+              whole program on punched tape and testing it.</p>
+            <p>[Diary from 28. 7. 66]</p>
+            <p>PROJECT 2 practically finished.</p>
+            <p>[Diary of 29. 7. 1966]</p>
+            <p>Last hand on PROJECT 2. Hope to get time at the flexowriter on Wednesday
+              and Thursday.</p>
+            <p>[Diary of 1. 8. 1966]</p>
+            <p>The punched tapes of PROJEKT 2 will being finished before the holidays.
+              On 1 September, Greta Vermeulen started working as a half-day assistant (the other half occupies
+              Shinohara) to take care of all program matters and contact with the computer centre. In the meantime,
+              she could hardly achieve anything (except some Flexowriter work), because the Electrologica X8 is again
+              not running. Yesterday PROJECTS 1 and 2 were shipped to Amsterdam. Most likely PROJECT 2 is too long
+              (for a core memory with 16000 words). I will try to squeeze the arrays together. I also have hope to
+              find a bigger computer. An employee of the local IBM branch, from whom Tempelaars got manuals about
+              other machine languages, showed great interest, he will visit us soon.</p>
+            <p>[Diary from 1. 10. 1966]</p>
+            <p>In the next course, starting in October, I will hold a special course
+              entitled &ldquo;Computer Composition&rdquo;. The course will take place three times a month and will
+              consist of a series of practical exercises. For this purpose, PROJECT 2 will be taken apart into its
+              individual parts, so that the participants can program and try out each piece for themselves. At the end
+              of the course there will be the opportunity to use the complete version of PROJECT 2.</p>
+            <p>[Letter to Makoto Shinohara, 18. 3. 1967]</p>
+            <p>In the special course COMPUTER COMPOSITION we had one hour per week in
+              the last course. Small sub-programs (from PROJECT 2) were discussed; the participants could run these
+              programs on the computer. We will do the same in the following course; in the continuation course we
+              will focus more on the computer itself and the ALGOL language. The participants should write simple
+              programs themselves.</p>
+            <p>[Letter to Istv&aacute;n Anhalt, 31. 5. 1968]</p>
+            <p>The composition programs (&ldquo;Project 1&rdquo; and &ldquo;Project
+              2&rdquo;) are intended as preparatory work for sound production, although they naturally have their own
+              independent significance for composition and composition theory.</p>
+            <p>[Letter to Nicole Lacharte, 1. 7. 1968]</p>
+            <p>The new large computer program (Project 2) is finally running and I have
+              started to work on several projects with it, including a number of piano pieces (1 piano). I assume that
+              I will be able to finish at least one piece, maybe two, in time (for the Pro Musica Nova
+              concert).</p>
+            <p>[Letter to Hans Otte, 16. 6. 1969]</p>
+            <p>My computer programme (PROJECT 2) is finally running: I am now in the
+              process of making a first composition (for piano) with it. Performance 1970 in Bremen (Musica
+              Nova).</p>
+            <p>[Letter to Zbigniev Penherski, 17. 12. 1969]</p>
+            <p>In Bremen, Claude Helffer will perform a new piano piece composed with
+              the new program, PROJECT 2. I hope to publish the score of it - together with an analytical appendix -
+              soon.</p>
+            <p>[Letter to Eduard Herzog, 13. 5. 1970]</p>
+            <p>4 Plans for the new version of PROJECT 2 were put on hold due to other
+              events, and the computer sound program did not work as I wanted it to - again a question of time. In the
+              meantime, Paul Berg has taken on the sound programme and has achieved his first small successes. Freed
+              from this, I turned back to PROJECT 2 and at the same time submitted a project for the construction of a
+              sound generator. This is an old idea of mine (and perhaps this is what you are aiming at with your
+              remark about a &lsquo;real-time version&rsquo;) ... in order to have data points available for each of
+              the operations used by the composer). The project has been provisionally accepted; Scherpenisse is
+              working on a simplified version of Kaegi's VOSIM generators. &ndash; The input data points are in any
+              case fixed in the user's data set, which can be interactively modified in the new version of the program
+              (PROJECT 2b) and also saved on DECtape. By the way, I write the new program in FORTRAN IV, so that it
+              can also run on other computers without much effort.</p>
+            <p>[Letter to Otto Laske, 3. 3. 1976]</p>
+            <p>I am now working on a new version of PROJECT 2, which will run on our own
+              (private) computer. This allows me to work much faster than with the old version in the computer centre
+              and gives me the opportunity to do extensive experiments and also to compose some pieces again. In the
+              institute, even special generators are being built with which the structures that the computer has
+              composed can be listened to immediately.</p>
+            <p>[Letter to Elfriede Koenig, 20. 3. 1976]</p>
+            <p>I hope that I will soon be able to work on the new version of my
+              &ldquo;Project 2&rdquo;, not only for my own enjoyment, but also and above all for the students'
+              sake.</p>
+            <p>[Letter to Elfriede Koenig, 30. 10. 1977]</p>
+            <p>As I heard (from someone involved), PROJECT 2 is almost finished, so you
+              can expect to see a copy of the FORTRAN version soon.</p>
+            <p>[Brief an Tamas Ungvary, 2. 5. 1980]</p>
+            <p>&lsquo;Our&rsquo; computer has become an integral part of our household.
+              (...) I use it first of all to produce a new manual for my composing programme &ldquo;Project 2&rdquo;,
+              which after many years of work has now received a probably final version.</p>
+            <p>[Letter to Elfriede Koenig, 4. 2. 1984]</p>
+            <p>At this moment, &ldquo;Project 2&rdquo; is unfortunately not yet
+              available. Ram&oacute;n has almost completed the redesign (i.e. the last Sonology version without MIDI
+              connection for Atari), but has gone on a search for bugs again (not without finding some) and would like
+              to finish it first. This will be the case (according to his estimate) in January or February. After that
+              we can send you the complete source text - as hardcopy or on 3.5&rdquo; floppy. If the implementation of
+              &ldquo;Project 1&rdquo; on a Macintosh is so smooth that you think you can extend it to &ldquo;Project
+              2&rdquo;, this will certainly happen. A MIDI connection is also considered of course, but we would like
+              to have a better version of the &ldquo;Midas&rdquo; program. &ndash; It is possible that we
+              (Ram&oacute;n and I) will produce a new, improved and extended version of &ldquo;Project 2&rdquo;;
+              whether this will happen depends, among other things, on funding from The Hague Conservatory. This would
+              render the current version obsolete.</p>
+            <p>[Letter to Otto Laske, 13. 11. 1988]</p>
+            <div id="music">
               <br><br>
               <hr />
             </div>
-
           </div>
         </div>
-
-
-
+       
+      <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+          <h1>Music</h1>
+            <p>
+              Koenig composed the string trio <i>60 Blätter</i> (60 pages) for his friend Heinz-Klaus Metzger as a present for his sixtieth birthday. It consists of 60 single pages. They form four groups of 15 pages each (1–15, 16–30, 31–45, 46–60), which are variants of one another. The musicians can play any number of them (but at least 15) in any sequence. On the CD, these pieces are performed in ascending order. The listener is advised to use the Random or Program function in order to enjoy different, random-determined or planned versions of any length.
+            </p>
+            <p> <strong>Page 29</strong></p>
+            <p>  
+              <audio controls>
+                <source src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/music/Track29.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+            <p> <strong>Page 17</strong></p>
+            <p>
+              <audio controls>
+                <source src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/music/Track17.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+            <p> <strong>Page 23</strong></p>
+            <p>
+              <audio controls>
+                <source src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/music/Track23.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+            <p> <strong>Page 47</strong></p>
+            <p>
+              <audio controls>
+                <source src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/music/Track47.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+            <p><strong>Page 5</strong></p>
+            <p>
+              <audio controls>
+                <source src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/music/Track05.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </p>
+          </div>
+          <div id="interface">
+            <br><br>
+            <hr />
+          </div>
+        
+        </div>
+      
+        <p> <br></p>
+       
         <div class="row">
           <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
+            <hr />  
             <h1>Interface</h1>
-
             <figure>
               <img src="https://blindni.s3.eu-central-1.amazonaws.com/pr2/img/darienscreens/darien-duration.png"
                 alt="Interface" />
@@ -873,7 +830,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-12 col-md-10 col-lg-7 col-lg-offset-2 col-md-offset-1">
             <h1>Prototypes</h1>
             <br>
@@ -954,7 +911,7 @@
             </figure>
 
           </div>
-        </div>
+        </div> -->
         <div id="usage">
           <br><br>
           <hr />
@@ -1009,4 +966,5 @@
     </div>
   </div>
 </body>
+
 </html>
