@@ -20,7 +20,7 @@ background: #ffffff;
 }
 
 #navigation {
-    visibility: hidden;
+    visibility: hidden !important;;
 }
 
 #bgtest {
@@ -29,6 +29,10 @@ background: #ffffff;
 
 #navigation-tooltip {
     visibility: hidden;
+}
+
+.mainmenu {
+  visibility: hidden !important;;
 }
 
 body {
@@ -96,9 +100,9 @@ header {
 
 .exposition  h1 {
     font-family: 'Lora', serif;
-    font-size: 28pt;
-    margin-top: 20px;
-    margin-bottom: -10px;
+    font-size: 26pt;
+    margin-top: 50px;
+    margin-bottom: -15px;
 }
 
 .exposition h2 {
